@@ -1,13 +1,13 @@
 import React from 'react';
-import './main.scss';
+import './app.scss';
 import './reset.css';
-import Button from '@material-ui/core/Button';
+import Main from './Components/Main/Main';
 
 
 const App = () => {
     return (
         <div className="app">
-            
+            <Main />
         </div>
     )
 }

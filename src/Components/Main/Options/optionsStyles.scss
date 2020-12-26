@@ -1,0 +1,79 @@
+.options__menu {
+    width: 100vw;
+    height: 10vw;
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .option__menu__container {
+        width: 96vw;
+        height: 6.5vw;
+        border-radius: 14px;
+        background: rgb(75, 74, 74);
+        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .option__menu__option {
+            width: 30vw;
+            height: 4vw;
+            border-radius: 12px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            background: rgba(151, 149, 149, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition-duration: 0.25s;
+            cursor: pointer;
+
+            .menu__option__content {
+                width: 20vw;
+                height: 4vw;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+
+                .option__content__title {
+                    font-family: 'Raleway';
+                    color: white;
+                }
+
+                .divider {
+                    width: 1px;
+                    height: 60%;
+                    background-color: white;
+                    margin-left: 4%;
+                }
+
+                .option__content__icon {
+                    color: white;
+                    margin-right: -8%;
+                }
+            }
+        }
+
+        .option__menu__option:hover {
+            background: rgba(233, 231, 231, 0.9);
+
+            .menu__option__content {
+
+                .option__content__title {
+                    color: rgb(39, 39, 39);
+                }
+
+                .divider {
+                    background-color: rgb(39, 39, 39);
+                }
+
+                .option__content__icon {
+                    color: rgb(39, 39, 39);
+                }
+            }
+        }
+    }
+}
