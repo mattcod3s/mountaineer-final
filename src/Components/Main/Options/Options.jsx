@@ -2,20 +2,26 @@ import React, { useState, useContext } from 'react';
 import './optionsStyles.scss';
 import CloudDoneIcon from '@material-ui/icons/CloudDone';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-import { StatusProvider, StatusContext } from '../../../context/context';
+import { PlanStatusProvider, PlanStatusContext, ConqStatusProvider, ConqStatusContext } from '../../../context/context';
 
 const Options = () => {
-    const [conqStatus, setConqStatus] = useContext(StatusContext);
-    const [planStatus, setPlanStatus] = useContext(StatusContext);
+    const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
+    const [planStatus, setPlanStatus] = useContext(PlanStatusContext);
 
     const handleConqClick = () => {
-        setConqStatus(!conqStatus);
-        console.log(conqStatus);
+
+        setConqStatus(true);
+        setPlanStatus(false);
+        
+        console.log("Plan : " + planStatus + " ::: Conq : " + conqStatus );
     }
     
     const handlePlanClick = () => {
-        setPlanStatus(!planStatus);
-        console.log(planStatus);
+
+        setPlanStatus(true);
+        setConqStatus(false);
+
+        console.log("Plan : " + planStatus + " ::: Conq : " + conqStatus );
     }
 
     return (

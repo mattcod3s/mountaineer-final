@@ -1,9 +1,9 @@
 import React from 'react';
 import './conqStyles.scss';
 
-const Conquered = ({isActive}) => {
+const Conquered = ({isConqActive}) => {
     return (
-        <div className={isActive ? "conq_active" : "conq"}>
+        <div className={isConqActive ? "conq_active" : "conq"}>
             
         </div>
     )

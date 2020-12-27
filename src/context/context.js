@@ -1,17 +1,28 @@
 import React, { useState, createContext } from 'react';
 
-export const StatusContext = createContext();
+export const ConqStatusContext = createContext();
 
-export const StatusProvider = (props) => {
+
+export const ConqStatusProvider = (props) => {
 
     const [conqStatus, setConqStatus] = useState(false);
+
+    return (
+        <ConqStatusContext.Provider value={ [conqStatus, setConqStatus] }>
+            {props.children}
+        </ConqStatusContext.Provider>
+    );
+}
+
+export const PlanStatusContext = createContext();
+
+export const PlanStatusProvider = (props) => {
+
     const [planStatus, setPlanStatus] = useState(false);
 
     return (
-        <StatusContext.Provider value={
-            [conqStatus, setConqStatus]
-        }>
+        <PlanStatusContext.Provider value={ [planStatus, setPlanStatus] }>
             {props.children}
-        </StatusContext.Provider>
+        </PlanStatusContext.Provider>
     );
 }

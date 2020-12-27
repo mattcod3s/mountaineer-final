@@ -1,9 +1,9 @@
 import React from 'react';
 import './planStyles.scss';
 
-const Planned = ({isActive}) => {
+const Planned = ({isPlanActive}) => {
     return (
-        <div className={isActive ? "plan_active" : "plan"}>
+        <div className={isPlanActive ? "plan_active" : "plan"}>
             
         </div>
     )
