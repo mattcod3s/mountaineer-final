@@ -1,3 +1,13 @@
+@keyframes handleMenuHover {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-8px);
+    }
+}
+
+
 .options__menu {
     width: 100vw;
     height: 10vw;
@@ -59,20 +69,14 @@
 
         .option__menu__option:hover {
             background: rgba(233, 231, 231, 0.9);
+            animation-name: handleMenuHover;
+            animation-duration: .25s;
+            animation-fill-mode: forwards;
 
             .menu__option__content {
-
-                .option__content__title {
-                    color: rgb(39, 39, 39);
-                }
-
-                .divider {
-                    background-color: rgb(39, 39, 39);
-                }
-
-                .option__content__icon {
-                    color: rgb(39, 39, 39);
-                }
+                .option__content__title { color: rgb(39, 39, 39);}
+                .divider { background-color: rgb(39, 39, 39);}
+                .option__content__icon { color: rgb(39, 39, 39); }
             }
         }
     }

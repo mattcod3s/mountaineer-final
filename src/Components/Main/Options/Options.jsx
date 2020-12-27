@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './optionsStyles.scss';
 import CloudDoneIcon from '@material-ui/icons/CloudDone';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 
 const Options = () => {
 
-    const handleMouseOver = () => {
-
-    }
+    
 
     return (
         <div className="options__menu">
