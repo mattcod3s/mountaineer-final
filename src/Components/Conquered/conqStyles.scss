@@ -1,0 +1,13 @@
+.conq {
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: none;
+}
+
+.conq_active {
+    width: 100vw;
+    height: 100vh;
+    background: red;
+    display: flex;
+}

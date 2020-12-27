@@ -1,9 +1,9 @@
 import React from 'react';
-import 'planStyles.scss';
+import './planStyles.scss';
 
-const Planned = () => {
+const Planned = ({isActive}) => {
     return (
-        <div>
+        <div className={isActive ? "plan_active" : "plan"}>
             
         </div>
     )

@@ -1,9 +1,13 @@
+body {
+    height: 100vh;
+}
+
 
 .app {
     width: 100vw;
     height: 100vh;
     background-image: url(./Assets/mountain-bg.jpg);
     background-size: cover;
-    position: fixed;
+    
     filter: brightness(80%);
 }
