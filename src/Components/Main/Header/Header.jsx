@@ -2,6 +2,7 @@ import React from 'react';
 import './headerStyles.scss';
 import FilterHdrIcon from '@material-ui/icons/FilterHdr';
 
+
 const Header = () => {
     return (
         <div className="header__wrapper">

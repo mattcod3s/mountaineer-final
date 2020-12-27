@@ -1,18 +1,17 @@
-import React, { useReducer, createContext } from 'react';
-import contextReducer from './contextReducer';
+import React, { useState, createContext } from 'react';
 
+export const StatusContext = createContext();
 
+export const StatusProvider = (props) => {
 
-const initialState =  [];
-
-export const MountaineerContext = createContext(initialState);
-
-export const Provider = ({ children }) => {
-    const [something, dispatch] = useReducer(contextReducer, initialState);
+    const [conqStatus, setConqStatus] = useState(false);
+    const [planStatus, setPlanStatus] = useState(false);
 
     return (
-        <MountaineerContext.Provider value={{ }}>
-            {children}
-        </MountaineerContext.Provider>
-    )
+        <StatusContext.Provider value={
+            [conqStatus, setConqStatus]
+        }>
+            {props.children}
+        </StatusContext.Provider>
+    );
 }

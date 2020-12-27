@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { Provider, MountaineerContext } from './context/context';
+import {StatusProvider, StatusContext} from './context/context';
+
 
 ReactDOM.render(
-    <Provider>
+    <StatusProvider>
         <App/>
-    </Provider>
+    </StatusProvider>
 , document.getElementById('root'));
