@@ -16,12 +16,11 @@ const App = () => {
     const [planStatus, setPlanStatus] = useContext(PlanStatusContext);
 
 
-
     return (
         <div className="app">
                 <Main />
-                <Planned isPlanActive={planStatus}/>
-                <Conquered isConqActive={conqStatus}/>
+                <Planned isPlanActive={planStatus} />
+                <Conquered isConqActive={conqStatus} />
                 <Layer isConqActive={conqStatus} isPlanActive={planStatus}/>
         </div>
     )

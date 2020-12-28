@@ -9,7 +9,7 @@ const Options = () => {
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 700) {
+            if (window.scrollY > 150) {
                 handleShow(true);
             } else {
                 handleShow(false);
@@ -27,8 +27,8 @@ const Options = () => {
 
         setConqStatus(true);
         setPlanStatus(false);
-        
-        console.log("Plan : " + planStatus + " ::: Conq : " + conqStatus );
+
+        setTimeout( () => window.scrollTo(785, 785), 300 );
     }
     
     const handlePlanClick = () => {
@@ -36,13 +36,14 @@ const Options = () => {
         setPlanStatus(true);
         setConqStatus(false);
 
-        console.log("Plan : " + planStatus + " ::: Conq : " + conqStatus );
+        setTimeout( () => window.scrollTo(785, 785), 300 );
+        
     }
 
     return (
         <div className={`options__menu ${show && "options__menu__scrolled"}`}>
             <div className="option__menu__container">
-                <div className="option__menu__option" onClick={handleConqClick}>
+                <div className={conqStatus ? 'option__menu__active' : "option__menu__option"} onClick={handleConqClick}>
                     <div className="menu__option__content">
                         <div className="option__content__title">
                             <h3>CONQUERED</h3>
@@ -53,7 +54,7 @@ const Options = () => {
                         </div>
                     </div>
                 </div>
-                <div className="option__menu__option" onClick={handlePlanClick}>
+                <div className={planStatus ? 'option__menu__active' : "option__menu__option"} onClick={handlePlanClick}>
                     <div className="menu__option__content">
                         <div className="option__content__title">
                             <h3>PLANNED</h3>
