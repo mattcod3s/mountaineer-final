@@ -4,7 +4,7 @@ import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, M
 
 const PlanForm = () => {
     return (
-        <div>
+        <div className="planForm">
             <Grid container>
                 <Grid item>
 
