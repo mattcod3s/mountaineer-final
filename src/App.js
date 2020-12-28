@@ -5,6 +5,7 @@ import Main from './Components/Main/Main';
 import Conquered from './Components/Conquered/Conquered';
 import Planned from './Components/Planned/Planned';
 import { PlanStatusProvider, PlanStatusContext, ConqStatusProvider, ConqStatusContext } from './context/context';
+import Layer from './Components/Layer/Layer';
 
 
 const App = () => {
@@ -15,12 +16,13 @@ const App = () => {
     const [planStatus, setPlanStatus] = useContext(PlanStatusContext);
 
 
+
     return (
         <div className="app">
                 <Main />
                 <Planned isPlanActive={planStatus}/>
-               
                 <Conquered isConqActive={conqStatus}/>
+                <Layer isConqActive={conqStatus} isPlanActive={planStatus}/>
         </div>
     )
 }
