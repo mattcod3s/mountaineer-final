@@ -1,10 +1,25 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './optionsStyles.scss';
 import CloudDoneIcon from '@material-ui/icons/CloudDone';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import { PlanStatusProvider, PlanStatusContext, ConqStatusProvider, ConqStatusContext } from '../../../context/context';
 
 const Options = () => {
+    const [show, handleShow] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 700) {
+                handleShow(true);
+            } else {
+                handleShow(false);
+            }
+        });
+        return () => {
+            window.removeEventListener('scroll');
+        }
+    }, []);
+
     const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
     const [planStatus, setPlanStatus] = useContext(PlanStatusContext);
 
@@ -25,7 +40,7 @@ const Options = () => {
     }
 
     return (
-        <div className="options__menu">
+        <div className={`options__menu ${show && "options__menu__scrolled"}`}>
             <div className="option__menu__container">
                 <div className="option__menu__option" onClick={handleConqClick}>
                     <div className="menu__option__content">

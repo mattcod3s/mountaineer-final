@@ -7,6 +7,28 @@
     }
 }
 
+@keyframes scrollInit {
+    from {
+        transform: translateY(150px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes scrollMenu {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(150px);
+    }
+}
+
+.options__menu__scrolled {
+    animation-name: scrollMenu !important;
+    z-index: 999;
+}
 
 .options__menu {
     width: 100vw;
@@ -17,6 +39,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation-name: scrollInit;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    z-index: 999;
 
     .option__menu__container {
         width: 96vw;

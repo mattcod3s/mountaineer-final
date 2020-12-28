@@ -6,6 +6,7 @@ import Conquered from './Components/Conquered/Conquered';
 import Planned from './Components/Planned/Planned';
 import { PlanStatusProvider, PlanStatusContext, ConqStatusProvider, ConqStatusContext } from './context/context';
 
+
 const App = () => {
 
     
@@ -18,6 +19,7 @@ const App = () => {
         <div className="app">
                 <Main />
                 <Planned isPlanActive={planStatus}/>
+               
                 <Conquered isConqActive={conqStatus}/>
         </div>
     )
