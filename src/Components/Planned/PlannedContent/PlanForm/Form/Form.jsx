@@ -1,45 +1,65 @@
-import React from 'react';
-import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import NativeSelect from '@material-ui/core/NativeSelect';
+import React, { useState } from 'react';
+import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem, NativeSelect } from '@material-ui/core';
+import './formStyles.scss';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
+const initialState = {
+    continent : '',
+    mountain : '',
+    startDate : '',
+    endDate : ''
+}
 
 const Form = () => {
+    const [formData, setFormData] = useState(initialState);
+
     return (
         <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        <Typography align="center" variant="subtitle2" gutterBottom>
-                            PLAN NEW ADVENTURE
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6} >
-                        <FormControl fullWidth>
-                            <InputLabel>CONTINENT</InputLabel>
-                            <NativeSelect value="" >
-                                <option value={null}></option>
-                                <option value="Income">Income</option>
-                                <option value="Expense">Expense</option>
-                            </NativeSelect>
-                        </FormControl>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <FormControl fullWidth>
-                            <InputLabel>MOUNTAIN</InputLabel>
-                            <NativeSelect value="">
-                            {/*selectedCategories.map((c) => <MenuItem key={c.type} value={c.type}>{c.type}</MenuItem>)*/}
-                                <option value={null}></option>
-                                <option value="Income">Income</option>
-                                <option value="Expense">Expense</option>
-                            </NativeSelect>
-                        </FormControl>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <TextField type="number" label="Amount" fullWidth value="" />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <TextField type="date" label="Date" fullWidth value=""/>
-                    </Grid>
-                    <Button variant="outlined" color="primary" fullWidth >Create</Button>
-                </Grid>
+            <Grid item xs={6} >
+                <FormControl fullWidth>
+                    <InputLabel>CONTINENT</InputLabel>
+                    <NativeSelect
+                        value={formData.continent}
+                        onChange={(e) => setFormData({ ...formData, continent : e.target.value })}
+                    >
+                        <option value={null}></option>
+                        <option value={'all'}>All Peaks</option>
+                        <option value={'top'}>Top Peaks</option>
+                        <option value={'africa'}>AFRICA</option>
+                        <option value={'south-am'}>SOUTH AMERICA</option>
+                        <option value={'north-am'}>NORTH AMERICA</option>
+                        <option value={'asia'}>ASIA</option>
+                        <option value={'europe'}>EUROPE</option>
+                    </NativeSelect>
+                </FormControl>
+            </Grid>
+            <Grid item xs={6}>
+                <FormControl fullWidth>
+                    <InputLabel>MOUNTAIN</InputLabel>
+                    <NativeSelect
+                        value={formData.mountain}
+                        onChange={(e) => setFormData({ ...formData, mountain : e.target.value })}
+                    >
+                        <option value={null}></option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                    </NativeSelect>
+                </FormControl>
+            </Grid>
+            <Grid item xs={6}>
+                <FormControl fullWidth>
+                    <TextField value={formData.startDate} variant="outlined" label="Start Date" type="date" 
+                    InputLabelProps={{shrink: true}} onChange={(e) => setFormData({ ...formData, startDate : e.target.value })}></TextField>
+                </FormControl>
+            </Grid>
+            <Grid item xs={6}>
+                <FormControl fullWidth>
+                    <TextField value={formData.endDate}  variant="outlined" label="End Date" type="date" 
+                    InputLabelProps={{shrink: true}} onChange={(e) => setFormData({ ...formData, endDate : e.target.value })}></TextField>
+                </FormControl>
+            </Grid>
+            <Button variant="outlined" color="primary" fullWidth >Create</Button>
+        </Grid>
     )
 }
 

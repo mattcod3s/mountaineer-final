@@ -1,23 +1,52 @@
 .planForm {
-    width: 90vw;
+    width: 96vw;
     height: 50vh;
-    border-radius: 10px;
-    background: rgba(90, 89, 89, 0.7);
-    box-shadow: rgba(255, 255, 255, 0.3) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.4) 0px 30px 60px -30px;
+    border-radius: 6px;
+    background: rgba(240, 238, 238, 0.8);
+    box-shadow: rgba(167, 195, 207, 0.25) 0px 25px 50px -10px, rgba(255, 255, 255, 0.3) 0px 15px 30px -15px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     .planForm__wrapper {
         background: transparent;
-        width: 70vw;
+        width: 94vw;
         height: 40vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
 
-        .cont__select {
-            margin-top: 1000px;
+        .planForm__title {
+            font-size: 2rem;
+            width: 100%;
+            font-family: 'Raleway';
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        .planForm__innerCont {
+            background: transparent;
+            width: 94vw;
+            height: 40vh;
+            display: flex;
+            justify-content: space-around;
+
+            .planForm__info {
+                width: 30vw;
+                height: 35vh;
+                background: white;
+                border-radius: 15px;
+            }
+
+            .planForm__form {
+                width: 50vw;
+                height: 30vh;
+                background: transparent;
+                display: flex;
+                align-content: center;
+                justify-content: center;
+            }
         }
     }
 }
