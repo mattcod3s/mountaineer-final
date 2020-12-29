@@ -13,11 +13,11 @@
     bottom: -150vh;
     left: 0;
     z-index: 2;
-    filter: blur(7px);
+    filter: blur(2px);
 }
 
 .layer_active_plan {
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../Assets/mountain-bg.jpg);
+    background-image:linear-gradient(rgba(7, 7, 7, 0.6), rgba(7, 7, 7, 0.6)), url(../../Assets/mountain-bg.jpg);    
     background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -27,5 +27,5 @@
     bottom: -150vh;
     left: 0;
     z-index: 2;
-    filter: blur(7px);
+    filter: blur(2px);
 }
