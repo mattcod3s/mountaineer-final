@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem, NativeSelect } from '@material-ui/core';
 import './formStyles.scss';
-import FormHelperText from '@material-ui/core/FormHelperText';
+import {FormStatusContext, FormStatusProvider} from '../../../../../context/context';
 
-const initialState = {
-    continent : '',
-    mountain : '',
-    startDate : '',
-    endDate : ''
-}
+
 
 const Form = () => {
-    const [formData, setFormData] = useState(initialState);
+    const [formData, setFormData] = useContext(FormStatusContext);
 
     return (
         <Grid container spacing={2}>
@@ -30,6 +25,7 @@ const Form = () => {
                         <option value={'north-am'}>NORTH AMERICA</option>
                         <option value={'asia'}>ASIA</option>
                         <option value={'europe'}>EUROPE</option>
+                        <option value={'aus'}>AUSTRALIA</option>
                     </NativeSelect>
                 </FormControl>
             </Grid>
