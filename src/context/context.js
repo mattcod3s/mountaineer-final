@@ -2,6 +2,7 @@ import React, { useState, createContext, useReducer } from 'react';
 
 
 const initialState = {
+    id : '',
     continent : '',
     mountain : '',
     startDate : '',
@@ -12,54 +13,11 @@ const initialState = {
 const initialPlannedTrips = [
     {
         id : 1,
-        continent : 'australia',
-        mountain : 'sum',
-        startDate : 'sds',
-        endDate : 'dss'
-    }, 
-    {
-        id : 2,
-        continent : 'ds',
-        mountain : 'sd',
-        startDate : 'sd',
-        endDate : 'sd'
-    }, 
-    {
-        id : 3,
-        continent : 'ds',
-        mountain : 'sd',
-        startDate : 'ds',
-        endDate : 'ds'
-    },
-    {
-        id : 4,
-        continent : 'ds',
-        mountain : 'sd',
-        startDate : 'ds',
-        endDate : 'ds'
-    },
-    {
-        id : 5,
-        continent : 'ds',
-        mountain : 'sd',
-        startDate : 'ds',
-        endDate : 'ds'
-    },
-    {
-        id : 6,
-        continent : 'ds',
-        mountain : 'sd',
-        startDate : 'ds',
-        endDate : 'ds'
-    },
-    {
-        id : 7,
-        continent : 'ds',
-        mountain : 'sd',
-        startDate : 'ds',
-        endDate : 'ds'
+        continent : 'ASIA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020'
     }
-
 ];
 
 export const ConqStatusContext = createContext();

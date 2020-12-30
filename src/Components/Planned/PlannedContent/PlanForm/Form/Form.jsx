@@ -1,12 +1,30 @@
 import React, { useState, useContext } from 'react';
 import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem, NativeSelect } from '@material-ui/core';
 import './formStyles.scss';
-import {FormStatusContext, FormStatusProvider} from '../../../../../context/context';
+import {FormStatusContext, FormStatusProvider, PlannedTripsContext} from '../../../../../context/context';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
 const Form = () => {
+
     const [formData, setFormData] = useContext(FormStatusContext);
+    const [plannedTrips, setPlannedTrips] = useContext(PlannedTripsContext);
+
+    const handleFormClick = (e) => {
+        if (formData.continent === '') {
+            e.preventDefault();
+            setPlannedTrips(prevTrips => [...prevTrips, { 
+                id : uuidv4(), 
+                continent : formData.continent, 
+                mountain : formData.mountain, 
+                startDate : formData.startDate, 
+                endDate: formData.endDate
+            }]);
+        }
+        setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: ''});
+    }
+
     return (
         <Grid container spacing={2}>
             <Grid item xs={6} >
@@ -53,7 +71,7 @@ const Form = () => {
                     InputLabelProps={{shrink: true}} onChange={(e) => setFormData({ ...formData, endDate : e.target.value })}></TextField>
                 </FormControl>
             </Grid>
-            <Button variant="outlined" color="primary" fullWidth >Create</Button>
+            <Button variant="outlined" color="primary" fullWidth onClick={handleFormClick}>Create</Button>
         </Grid>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { List as MUIList, ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide, MuiThemeProvider } from '@material-ui/core';
+import { List as MUIList, ListItem, ListItemAvatar, Divider ,ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide, MuiThemeProvider } from '@material-ui/core';
 import './planListStyles.scss';
 import { PlannedTripsContext } from "../../../../context/context";
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -20,19 +20,19 @@ const PlanList = () => {
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText primary={trip.mountain} secondary={`$${trip.startDate} - ${trip.endDate}`}/>
-                            <ListItemSecondaryAction style={{paddingRight: '240px', zIndex: "3"}}>
+                            <ListItemSecondaryAction style={{paddingRight: '240px'}}>
                                 <IconButton edge="end" aria-label="delete">
-                                    <DoneAllIcon />
+                                    <DoneAllIcon style={{color: 'green'}}/>
                                 </IconButton>
                             </ListItemSecondaryAction>
-                            <ListItemSecondaryAction style={{ paddingRight: '140px', zIndex: "3"}}>
+                            <ListItemSecondaryAction style={{ paddingRight: '140px'}}>
                                 <IconButton edge="end" aria-label="delete">
-                                    <PauseIcon />
+                                    <PauseIcon style={{color: 'yellow'}}/>
                                 </IconButton>
                             </ListItemSecondaryAction>
-                            <ListItemSecondaryAction style={{ paddingRight: '40px', zIndex: "3"}}>
+                            <ListItemSecondaryAction style={{ paddingRight: '40px'}}>
                                 <IconButton edge="end" aria-label="delete">
-                                    <DeleteIcon />
+                                    <DeleteIcon style={{color: 'red'}}/>
                                 </IconButton>
                             </ListItemSecondaryAction>
                         </ListItem>
