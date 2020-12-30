@@ -73,6 +73,7 @@ export const PlannedTripsProvider = (props) => {
         </PlannedTripsContext.Provider>
     );*/
     const [plannedTrips, dispatch] = useReducer(contextReducer, initialPlannedTrips);
+    const [completedTrip] = useReducer(contextReducer, initialPlannedTrips);
 
     const deleteTrip = (id) => {
         dispatch({ type : 'DELETE_TRIP', payload : id});
@@ -82,11 +83,17 @@ export const PlannedTripsProvider = (props) => {
         dispatch({ type : 'ADD_TRIP', payload : trip });
     }
 
+    const completeTrip = (trip) => {
+        dispatch({type : 'COMPLETE_TRIP', payload : trip});
+    }
+
     return (
         <PlannedTripsContext.Provider value={{ 
             deleteTrip, 
             addTrip, 
-            plannedTrips
+            plannedTrips,
+            completedTrip,
+            completeTrip
         }}>
             {props.children}
         </PlannedTripsContext.Provider>

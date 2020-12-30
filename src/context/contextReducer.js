@@ -1,6 +1,7 @@
 const contextReducer = (state, action) => {
 
     let plannedTrips;
+    let completedTrip;
 
     switch (action.type) {
         case 'DELETE_TRIP' : 
@@ -11,6 +12,8 @@ const contextReducer = (state, action) => {
             plannedTrips = [action.payload, ...state];
 
             return plannedTrips;
+        case 'COMPLETE_TRIP' :
+            completedTrip = [action.payload];
         default : 
             return state;
 

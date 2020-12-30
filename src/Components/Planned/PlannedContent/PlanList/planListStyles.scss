@@ -4,4 +4,24 @@
     border-radius: 6px;
     background: rgba(240, 238, 238, 0.8);
     box-shadow: rgba(167, 195, 207, 0.25) 0px 25px 50px -10px, rgba(255, 255, 255, 0.3) 0px 15px 30px -15px;
+
+    .planList__title {
+        width: 96vw;
+        height: 8vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(236, 235, 235);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+        h2 {
+            font-family: 'Raleway';
+            font-size: 1.6rem;
+        }
+    }
+
+    .list__items {
+        width: 96vw;
+        height: 42vh;
+    }
 }

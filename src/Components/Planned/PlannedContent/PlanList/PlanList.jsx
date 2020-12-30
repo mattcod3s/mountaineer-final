@@ -8,13 +8,17 @@ import DoneAllIcon from '@material-ui/icons/DoneAll';
 
 
 const PlanList = () => {
-    const { deleteTrip, plannedTrips } = useContext(PlannedTripsContext);
+    const { deleteTrip, plannedTrips, completeTrip, completedTrip } = useContext(PlannedTripsContext);
 
     /*const { deleteTrip, plannedTrips } = useContext(TripActionsContext);*/
-    
+
     return (
         <div className="planList">
-            <MUIList dense={false} style={{maxHeight: '45vh', overflow: 'auto',}}>
+            <div className="planList__title">
+                <h2>PLANNED ADVENTURES</h2>
+            </div>
+            <div className="list__items">
+                <MUIList dense={false} style={{maxHeight: '40vh', overflow: 'auto',}}>
                 {plannedTrips.map((trip) => (
                     <Slide direction="down" in mountOnEnter unmountOnExit key={trip.id}>
                         <ListItem>
@@ -23,15 +27,15 @@ const PlanList = () => {
                                     
                                 </Avatar>
                             </ListItemAvatar>
-                            <ListItemText primary={trip.mountain} secondary={`$${trip.startDate} - ${trip.endDate}`}/>
+                            <ListItemText primary={trip.mountain + ' -- ' + trip.continent} secondary={`Start Date : ${trip.startDate} - End Date : ${trip.endDate}`}/>
                             <ListItemSecondaryAction style={{paddingRight: '240px'}}>
-                                <IconButton edge="end" aria-label="delete">
+                                <IconButton edge="end" aria-label="finished">
                                     <DoneAllIcon style={{color: 'green'}}/>
                                 </IconButton>
                             </ListItemSecondaryAction>
                             <ListItemSecondaryAction style={{ paddingRight: '140px'}}>
-                                <IconButton edge="end" aria-label="delete">
-                                    <PauseIcon style={{color: 'yellow'}}/>
+                                <IconButton edge="end" aria-label="pause" >
+                                    <PauseIcon style={{color: 'yellow'}} />
                                 </IconButton>
                             </ListItemSecondaryAction>
                             <ListItemSecondaryAction style={{ paddingRight: '40px'}}>
@@ -42,28 +46,8 @@ const PlanList = () => {
                         </ListItem>
                     </Slide>
                 ))}
-            </MUIList>
-            {/*
-            <MUIList dense={false}>
-            {transactions.map((transaction) => (
-                <Slide direction="down" in mountOnEnter unmountOnExit key={transaction.id}>
-                    <ListItem>
-                        <ListItemAvatar>
-                            <Avatar className={transaction.type === 'Income' ? classes.avatarIncome : classes.avatarExpense}>
-                                <MoneyOff />
-                            </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText primary={transaction.category} secondary={`$${transaction.amount} - ${transaction.date}`}/>
-                        <ListItemSecondaryAction>
-                            <IconButton edge="end" aria-label="delete" onClick={() => deleteTransaction(transaction.id)}>
-                                <Delete />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                </Slide>
-                ))}
-            </MUIList>
-            */}
+                </MUIList>
+            </div>
         </div>
     )
 }

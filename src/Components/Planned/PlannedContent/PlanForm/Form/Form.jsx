@@ -3,6 +3,7 @@ import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, M
 import './formStyles.scss';
 import {FormStatusContext, FormStatusProvider, PlannedTripsContext} from '../../../../../context/context';
 import { v4 as uuidv4 } from 'uuid';
+import constants from '../../../../../constants/constants';
 
 
 
@@ -29,17 +30,12 @@ const Form = () => {
                     <InputLabel>CONTINENT</InputLabel>
                     <NativeSelect
                         value={formData.continent}
-                        onChange={(e) => setFormData({ ...formData, continent : e.target.value })}
+                        onChange={(e) => {
+                            setFormData({ ...formData, continent : e.target.value })
+                        }}
                     >
                         <option value={null}></option>
-                        <option value={'all'}>All Peaks</option>
-                        <option value={'top'}>Top Peaks</option>
-                        <option value={'africa'}>AFRICA</option>
-                        <option value={'south-am'}>SOUTH AMERICA</option>
-                        <option value={'north-am'}>NORTH AMERICA</option>
-                        <option value={'asia'}>ASIA</option>
-                        <option value={'europe'}>EUROPE</option>
-                        <option value={'aus'}>AUSTRALIA</option>
+                        {constants.map((cont) => <option value={cont.continent}>{cont.continent}</option>)}
                     </NativeSelect>
                 </FormControl>
             </Grid>
@@ -51,8 +47,12 @@ const Form = () => {
                         onChange={(e) => setFormData({ ...formData, mountain : e.target.value })}
                     >
                         <option value={null}></option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        
+                        {constants.map((cont) => {
+                            if (formData.continent === cont.continent){
+                                return (cont.mountains.map((m) => <option value={m.name}>{m.name}</option>))
+                            }
+                        })}
                     </NativeSelect>
                 </FormControl>
             </Grid>
