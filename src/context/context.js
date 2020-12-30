@@ -1,4 +1,5 @@
 import React, { useState, createContext, useReducer } from 'react';
+import contextReducer from './contextReducer';
 
 
 const initialState = {
@@ -12,7 +13,7 @@ const initialState = {
 
 const initialPlannedTrips = [
     {
-        id : 1,
+        id : 6,
         continent : 'ASIA',
         mountain : 'MOUNT EVEREST',
         startDate : '10-12-2020',
@@ -59,16 +60,60 @@ export const FormStatusProvider = (props) => {
     );
 }
 
-export const PlannedTripsContext = createContext(initialState);
+export const PlannedTripsContext = createContext(initialPlannedTrips);
 
 
 export const PlannedTripsProvider = (props) => {
-
+/*
     const [plannedTrips, setPlannedTrips] = useState(initialPlannedTrips);
 
     return (
         <PlannedTripsContext.Provider value={ [plannedTrips, setPlannedTrips] }>
             {props.children}
         </PlannedTripsContext.Provider>
-    );
+    );*/
+    const [plannedTrips, dispatch] = useReducer(contextReducer, initialPlannedTrips);
+
+    const deleteTrip = (id) => {
+        dispatch({ type : 'DELETE_TRIP', payload : id});
+    }
+
+    const addTrip = (trip) => {
+        dispatch({ type : 'ADD_TRIP', payload : trip });
+    }
+
+    return (
+        <PlannedTripsContext.Provider value={{ 
+            deleteTrip, 
+            addTrip, 
+            plannedTrips
+        }}>
+            {props.children}
+        </PlannedTripsContext.Provider>
+    )
+}
+
+
+export const TripActionsContext = createContext(initialPlannedTrips);
+
+export const TripActionProvider = (props) => {
+    const [plannedAdventures, dispatch] = useReducer(contextReducer, initialPlannedTrips);
+
+    const deleteTrip = (id) => {
+        dispatch({ type : 'DELETE_TRIP', payload : id});
+    }
+
+    const addTrip = (trip) => {
+        dispatch({ type : 'ADD_TRIP', payload : trip });
+    }
+
+    return (
+        <TripActionsContext.Provider value={{ 
+            deleteTrip, 
+            addTrip, 
+            plannedAdventures
+        }}>
+            {props.children}
+        </TripActionsContext.Provider>
+    )
 }

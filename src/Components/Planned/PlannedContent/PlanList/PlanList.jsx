@@ -1,13 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { List as MUIList, ListItem, ListItemAvatar, Divider ,ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide, MuiThemeProvider } from '@material-ui/core';
 import './planListStyles.scss';
-import { PlannedTripsContext } from "../../../../context/context";
+import { PlannedTripsContext, TripActionsContext } from "../../../../context/context";
 import DeleteIcon from '@material-ui/icons/Delete';
 import PauseIcon from '@material-ui/icons/Pause';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
 
+
 const PlanList = () => {
-    const [plannedTrips, setPlannedTrips] = useContext(PlannedTripsContext);
+    const { deleteTrip, plannedTrips } = useContext(PlannedTripsContext);
+
+    /*const { deleteTrip, plannedTrips } = useContext(TripActionsContext);*/
+    
     return (
         <div className="planList">
             <MUIList dense={false} style={{maxHeight: '45vh', overflow: 'auto',}}>
@@ -31,8 +35,8 @@ const PlanList = () => {
                                 </IconButton>
                             </ListItemSecondaryAction>
                             <ListItemSecondaryAction style={{ paddingRight: '40px'}}>
-                                <IconButton edge="end" aria-label="delete">
-                                    <DeleteIcon style={{color: 'red'}}/>
+                                <IconButton edge="end" aria-label="delete" onClick={() => deleteTrip(trip.id)}>
+                                    <DeleteIcon  style={{color: 'red'}}/>
                                 </IconButton>
                             </ListItemSecondaryAction>
                         </ListItem>

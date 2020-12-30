@@ -9,18 +9,15 @@ import { v4 as uuidv4 } from 'uuid';
 const Form = () => {
 
     const [formData, setFormData] = useContext(FormStatusContext);
-    const [plannedTrips, setPlannedTrips] = useContext(PlannedTripsContext);
+    const { addTrip, plannedTrips } = useContext(PlannedTripsContext);
 
     const handleFormClick = (e) => {
-        if (formData.continent === '') {
+        if (formData.continent === '' || formData.mountain === '' || formData.startDate === '' || formData.endDate === '') {
+            setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: ''});
+        } else {
             e.preventDefault();
-            setPlannedTrips(prevTrips => [...prevTrips, { 
-                id : uuidv4(), 
-                continent : formData.continent, 
-                mountain : formData.mountain, 
-                startDate : formData.startDate, 
-                endDate: formData.endDate
-            }]);
+            const pTrip = {...formData, id : uuidv4(), continent : formData.continent, mountain : formData.mountain, startDate : formData.startDate, endDate: formData.endDate}
+            addTrip(pTrip);
         }
         setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: ''});
     }
