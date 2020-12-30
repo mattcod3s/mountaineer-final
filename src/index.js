@@ -6,12 +6,12 @@ import { PlanStatusProvider,  ConqStatusProvider, FormStatusProvider, PlannedTri
 
 ReactDOM.render(
     <FormStatusProvider>
-        
+        <PlannedTripsProvider>
             <PlanStatusProvider>
                 <ConqStatusProvider>
                     <App/>
                 </ConqStatusProvider>
             </PlanStatusProvider>
-
+        </PlannedTripsProvider>
     </FormStatusProvider>
 , document.getElementById('root'));

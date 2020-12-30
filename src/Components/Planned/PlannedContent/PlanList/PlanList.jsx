@@ -1,12 +1,44 @@
 import React, { useState, useContext } from 'react';
-import { List as MUIList, ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide } from '@material-ui/core';
+import { List as MUIList, ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide, MuiThemeProvider } from '@material-ui/core';
 import './planListStyles.scss';
+import { PlannedTripsContext } from "../../../../context/context";
+import DeleteIcon from '@material-ui/icons/Delete';
+import PauseIcon from '@material-ui/icons/Pause';
+import DoneAllIcon from '@material-ui/icons/DoneAll';
 
 const PlanList = () => {
-
+    const [plannedTrips, setPlannedTrips] = useContext(PlannedTripsContext);
     return (
         <div className="planList">
-            
+            <MUIList dense={false} style={{maxHeight: '45vh', overflow: 'auto',}}>
+                {plannedTrips.map((trip) => (
+                    <Slide direction="down" in mountOnEnter unmountOnExit key={trip.id}>
+                        <ListItem>
+                            <ListItemAvatar>
+                                <Avatar>
+                                    
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText primary={trip.mountain} secondary={`$${trip.startDate} - ${trip.endDate}`}/>
+                            <ListItemSecondaryAction style={{paddingRight: '240px', zIndex: "3"}}>
+                                <IconButton edge="end" aria-label="delete">
+                                    <DoneAllIcon />
+                                </IconButton>
+                            </ListItemSecondaryAction>
+                            <ListItemSecondaryAction style={{ paddingRight: '140px', zIndex: "3"}}>
+                                <IconButton edge="end" aria-label="delete">
+                                    <PauseIcon />
+                                </IconButton>
+                            </ListItemSecondaryAction>
+                            <ListItemSecondaryAction style={{ paddingRight: '40px', zIndex: "3"}}>
+                                <IconButton edge="end" aria-label="delete">
+                                    <DeleteIcon />
+                                </IconButton>
+                            </ListItemSecondaryAction>
+                        </ListItem>
+                    </Slide>
+                ))}
+            </MUIList>
             {/*
             <MUIList dense={false}>
             {transactions.map((transaction) => (

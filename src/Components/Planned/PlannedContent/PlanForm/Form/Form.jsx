@@ -7,7 +7,6 @@ import {FormStatusContext, FormStatusProvider} from '../../../../../context/cont
 
 const Form = () => {
     const [formData, setFormData] = useContext(FormStatusContext);
-
     return (
         <Grid container spacing={2}>
             <Grid item xs={6} >

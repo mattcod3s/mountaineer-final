@@ -1,6 +1,5 @@
 import React, { useState, createContext, useReducer } from 'react';
 
-import contextReducer from './contextReducer';
 
 const initialState = {
     continent : '',
@@ -9,11 +8,12 @@ const initialState = {
     endDate : ''
 }
 
+
 const initialPlannedTrips = [
     {
         id : 1,
-        continent : 'dc',
-        mountain : 'dsd',
+        continent : 'australia',
+        mountain : 'sum',
         startDate : 'sds',
         endDate : 'dss'
     }, 
@@ -30,7 +30,36 @@ const initialPlannedTrips = [
         mountain : 'sd',
         startDate : 'ds',
         endDate : 'ds'
+    },
+    {
+        id : 4,
+        continent : 'ds',
+        mountain : 'sd',
+        startDate : 'ds',
+        endDate : 'ds'
+    },
+    {
+        id : 5,
+        continent : 'ds',
+        mountain : 'sd',
+        startDate : 'ds',
+        endDate : 'ds'
+    },
+    {
+        id : 6,
+        continent : 'ds',
+        mountain : 'sd',
+        startDate : 'ds',
+        endDate : 'ds'
+    },
+    {
+        id : 7,
+        continent : 'ds',
+        mountain : 'sd',
+        startDate : 'ds',
+        endDate : 'ds'
     }
+
 ];
 
 export const ConqStatusContext = createContext();
@@ -72,4 +101,16 @@ export const FormStatusProvider = (props) => {
     );
 }
 
+export const PlannedTripsContext = createContext(initialState);
 
+
+export const PlannedTripsProvider = (props) => {
+
+    const [plannedTrips, setPlannedTrips] = useState(initialPlannedTrips);
+
+    return (
+        <PlannedTripsContext.Provider value={ [plannedTrips, setPlannedTrips] }>
+            {props.children}
+        </PlannedTripsContext.Provider>
+    );
+}
