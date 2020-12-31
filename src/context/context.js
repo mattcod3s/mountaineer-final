@@ -2,6 +2,7 @@ import React, { useState, createContext, useReducer } from 'react';
 import contextReducer from './contextReducer';
 
 
+
 const initialState = {
     id : '',
     continent : '',

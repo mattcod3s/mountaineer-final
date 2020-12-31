@@ -4,6 +4,8 @@ import './formStyles.scss';
 import {FormStatusContext, FormStatusProvider, PlannedTripsContext} from '../../../../../context/context';
 import { v4 as uuidv4 } from 'uuid';
 import constants from '../../../../../constants/constants';
+import formatDate from '../../../../../utils/formatDate';
+
 
 
 
@@ -22,6 +24,7 @@ const Form = () => {
         }
         setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: ''});
     }
+
 
     return (
         <Grid container spacing={2}>
@@ -59,13 +62,19 @@ const Form = () => {
             <Grid item xs={6}>
                 <FormControl fullWidth>
                     <TextField value={formData.startDate} variant="outlined" label="Start Date" type="date" 
-                    InputLabelProps={{shrink: true}} onChange={(e) => setFormData({ ...formData, startDate : e.target.value })}></TextField>
+                    InputLabelProps={{shrink: true}} onChange={(e) => {
+                        setFormData({ ...formData, startDate : e.target.value })
+                        formatDate(formData.startDate, formData.endDate);
+                    }}></TextField>
                 </FormControl>
             </Grid>
             <Grid item xs={6}>
                 <FormControl fullWidth>
                     <TextField value={formData.endDate}  variant="outlined" label="End Date" type="date" 
-                    InputLabelProps={{shrink: true}} onChange={(e) => setFormData({ ...formData, endDate : e.target.value })}></TextField>
+                    InputLabelProps={{shrink: true}} onChange={(e) => {
+                        setFormData({ ...formData, endDate : e.target.value})
+                        console.log(formatDate(formData.startDate, formData.endDate));
+                    }}></TextField>
                 </FormControl>
             </Grid>
             <Button variant="outlined" color="primary" fullWidth onClick={handleFormClick}>Create</Button>

@@ -1,15 +1,17 @@
 import React, { useState, useContext } from 'react';
-import { List as MUIList, ListItem, ListItemAvatar, Divider ,ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide, MuiThemeProvider } from '@material-ui/core';
+import { List as MUIList, ListItem, Typography, ListItemAvatar, Divider ,ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide, MuiThemeProvider } from '@material-ui/core';
 import './planListStyles.scss';
-import { PlannedTripsContext, TripActionsContext } from "../../../../context/context";
+import { PlannedTripsContext, TripActionsContext, FormStatusContext } from "../../../../context/context";
 import DeleteIcon from '@material-ui/icons/Delete';
 import PauseIcon from '@material-ui/icons/Pause';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
 
 
+
 const PlanList = () => {
     const { deleteTrip, plannedTrips, completeTrip, completedTrip } = useContext(PlannedTripsContext);
 
+    
     /*const { deleteTrip, plannedTrips } = useContext(TripActionsContext);*/
 
     return (
@@ -47,6 +49,9 @@ const PlanList = () => {
                     </Slide>
                 ))}
                 </MUIList>
+            </div>
+            <div className={plannedTrips.length === 0 ? 'emptyList__text__active' : 'emptyList__text'}>
+                <h1>NO PLANNED TRIPS</h1>
             </div>
         </div>
     )

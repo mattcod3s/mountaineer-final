@@ -24,4 +24,25 @@
         width: 96vw;
         height: 42vh;
     }
+
+    .emptyList__text__active {
+        position: absolute;
+        width: 96vw;
+        height: 42vh;
+        bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            margin-top: -10vh;
+            color: rgb(194, 79, 79);
+            font-family: 'Raleway';
+            font-size: 5rem;
+        }
+    }
+
+    .emptyList__text {
+        display: none;
+    }
 }
