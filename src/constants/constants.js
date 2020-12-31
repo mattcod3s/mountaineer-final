@@ -1,3 +1,4 @@
+
 const constants = [
     {
         continent : 'SOUTH_AMERICA',
@@ -93,7 +94,8 @@ const constants = [
                 elevation: '5,610 m',
                 NormalRoute : '--'
             }
-        ]
+        ],
+        Image : ''
     },
 
 
