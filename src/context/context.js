@@ -7,8 +7,8 @@ const initialState = {
     id : '',
     continent : '',
     mountain : '',
-    startDate : '',
-    endDate : ''
+    startDate : '01/01/2021',
+    endDate : '01/01/2021'
 }
 
 

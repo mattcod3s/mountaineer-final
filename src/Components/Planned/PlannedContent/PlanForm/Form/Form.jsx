@@ -13,9 +13,12 @@ const Form = () => {
 
     const [formData, setFormData] = useContext(FormStatusContext);
     const { addTrip, plannedTrips } = useContext(PlannedTripsContext);
+    const [dateError, setDateError] = useState(false);
 
     const handleFormClick = (e) => {
         if (formData.continent === '' || formData.mountain === '' || formData.startDate === '' || formData.endDate === '') {
+            setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: ''});
+        } else if (formatDate(formData.startDate, formData.endDate) == true) {
             setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: ''});
         } else {
             e.preventDefault();
@@ -23,6 +26,8 @@ const Form = () => {
             addTrip(pTrip);
         }
         setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: ''});
+        setDateError(formatDate(formData.startDate, formData.endDate));
+        
     }
 
 
@@ -61,19 +66,19 @@ const Form = () => {
             </Grid>
             <Grid item xs={6}>
                 <FormControl fullWidth>
-                    <TextField value={formData.startDate} variant="outlined" label="Start Date" type="date" 
+                    <TextField error={dateError ? true : false} helperText={dateError ? 'Must be before End Date':''} value={formData.startDate} variant="outlined" label="Start Date" type="date" 
                     InputLabelProps={{shrink: true}} onChange={(e) => {
                         setFormData({ ...formData, startDate : e.target.value })
-                        formatDate(formData.startDate, formData.endDate);
+                        
                     }}></TextField>
                 </FormControl>
             </Grid>
             <Grid item xs={6}>
                 <FormControl fullWidth>
-                    <TextField value={formData.endDate}  variant="outlined" label="End Date" type="date" 
+                    <TextField error={dateError ? true : false}  helperText={dateError ? 'Must be after Start Date':''} value={formData.endDate}  variant="outlined" label="End Date" type="date" 
                     InputLabelProps={{shrink: true}} onChange={(e) => {
                         setFormData({ ...formData, endDate : e.target.value})
-                        console.log(formatDate(formData.startDate, formData.endDate));
+                        
                     }}></TextField>
                 </FormControl>
             </Grid>

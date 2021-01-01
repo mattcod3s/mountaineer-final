@@ -2,6 +2,8 @@
 
 const formatDate = (startDate, endDate) => {
 
+    let isError;
+
     const s = new Date(startDate);
     const e = new Date(endDate);
 
@@ -13,9 +15,13 @@ const formatDate = (startDate, endDate) => {
     const dayE = `${e.getDate()}`;
     const yearE = `${e.getFullYear()}`;
 
-    if ( dayE < dayS) {
-        console.log('err');
+    if ( parseInt(dayE, 10) > parseInt(dayS, 10)) {
+        isError = false;
+    } else if (parseInt(dayS, 10) > parseInt(dayE, 10)){
+        isError = true;
     }
+
+    return isError;
 }
 
 export default formatDate;
