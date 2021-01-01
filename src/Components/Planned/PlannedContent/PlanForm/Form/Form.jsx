@@ -7,6 +7,13 @@ import constants from '../../../../../constants/constants';
 import formatDate from '../../../../../utils/formatDate';
 
 
+import globe from '../../../../../Assets/formImg/globe.svg';
+import asia from '../../../../../Assets/formImg/asia.svg';
+import africa from '../../../../../Assets/formImg/africa.svg';
+import northAmerica from '../../../../../Assets/formImg/north-america.svg';
+import southAmerica from '../../../../../Assets/formImg/south-america.svg';
+import australia from '../../../../../Assets/formImg/australia.svg';
+import europe from '../../../../../Assets/formImg/europe.svg';
 
 
 const Form = () => {
@@ -15,17 +22,19 @@ const Form = () => {
     const { addTrip, plannedTrips } = useContext(PlannedTripsContext);
     const [dateError, setDateError] = useState(false);
 
+
+
     const handleFormClick = (e) => {
         if (formData.continent === '' || formData.mountain === '' || formData.startDate === '' || formData.endDate === '') {
-            setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: ''});
+            setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img: ''});
         } else if (formatDate(formData.startDate, formData.endDate) == true) {
-            setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: ''});
+            setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img: ''});
         } else {
             e.preventDefault();
-            const pTrip = {...formData, id : uuidv4(), continent : formData.continent, mountain : formData.mountain, startDate : formData.startDate, endDate: formData.endDate}
+            const pTrip = {...formData, id : uuidv4(), continent : formData.continent, mountain : formData.mountain, startDate : formData.startDate, endDate: formData.endDate, img: ''}
             addTrip(pTrip);
         }
-        setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: ''});
+        setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img : ''});
         setDateError(formatDate(formData.startDate, formData.endDate));
         
     }

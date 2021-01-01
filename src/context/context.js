@@ -1,5 +1,13 @@
 import React, { useState, createContext, useReducer } from 'react';
 import contextReducer from './contextReducer';
+import globe from '../Assets/formImg/globe.svg';
+import asia from '../Assets/formImg/asia.svg';
+import africa from '../Assets/formImg/africa.svg';
+import northAmerica from '../Assets/formImg/north-america.svg';
+import southAmerica from '../Assets/formImg/south-america.svg';
+import australia from '../Assets/formImg/australia.svg';
+import europe from '../Assets/formImg/europe.svg';
+
 
 
 
@@ -8,7 +16,8 @@ const initialState = {
     continent : '',
     mountain : '',
     startDate : '01/01/2021',
-    endDate : '01/01/2021'
+    endDate : '01/01/2021',
+    img: globe
 }
 
 
@@ -76,6 +85,10 @@ export const PlannedTripsProvider = (props) => {
         dispatch({ type : 'ADD_TRIP', payload : trip });
     }
 
+    const pauseTrip = (id) => {
+        dispatch({type : 'PAUSE_TRIP', payload: id})
+    }
+
     const completeTrip = (trip) => {
         dispatch({type : 'COMPLETE_TRIP', payload : trip});
     }
@@ -86,7 +99,8 @@ export const PlannedTripsProvider = (props) => {
             addTrip, 
             plannedTrips,
             completedTrip,
-            completeTrip
+            completeTrip,
+            pauseTrip
         }}>
             {props.children}
         </PlannedTripsContext.Provider>

@@ -15,12 +15,40 @@ import europe from '../../../../Assets/formImg/europe.svg';
 
 
 
+
 const PlanList = () => {
-    const { deleteTrip, plannedTrips, completeTrip, completedTrip } = useContext(PlannedTripsContext);
+    const { deleteTrip, plannedTrips, completeTrip, completedTrip, pauseTrip } = useContext(PlannedTripsContext);
 
     const [formData, setFormData] = useContext(FormStatusContext);
-    
 
+  
+    const chooseImg = (trip) => {
+        let currentImage;
+        switch (trip.continent) {
+            case 'SOUTH_AMERICA':
+                currentImage = southAmerica;
+                break;
+            case 'NORTH_AMERICA':
+                currentImage = northAmerica;
+                break;
+            case 'ASIA':
+                currentImage = asia;
+                break;
+            case 'AFRICA':
+                currentImage = africa;
+                break;
+            case 'AUSTRALIA':
+                currentImage = australia;
+                break;
+            case 'EUROPE':
+                currentImage = europe;
+                break;
+            default:
+                currentImage = globe;
+                break;
+        }
+        return currentImage;
+    }
 
     return (
         <div className="planList">
@@ -33,7 +61,7 @@ const PlanList = () => {
                     <Slide direction="down" in mountOnEnter unmountOnExit key={trip.id}>
                         <ListItem>
                             <ListItemAvatar>
-                                <Avatar src={globe}>
+                                <Avatar src={chooseImg(trip)}>
                                     
                                 </Avatar>
                             </ListItemAvatar>
@@ -44,7 +72,7 @@ const PlanList = () => {
                                 </IconButton>
                             </ListItemSecondaryAction>
                             <ListItemSecondaryAction style={{ paddingRight: '140px'}}>
-                                <IconButton edge="end" aria-label="pause" >
+                                <IconButton edge="end" aria-label="pause" onClick={() => pauseTrip(trip.id)}>
                                     <PauseIcon style={{color: 'yellow'}} />
                                 </IconButton>
                             </ListItemSecondaryAction>
