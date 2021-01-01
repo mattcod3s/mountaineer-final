@@ -18,7 +18,7 @@ const initialPlannedTrips = [
         continent : 'ASIA',
         mountain : 'MOUNT EVEREST',
         startDate : '10-12-2020',
-        endDate : '20-12-2020'
+        endDate : '20-12-2020',
     }
 ];
 
@@ -65,14 +65,6 @@ export const PlannedTripsContext = createContext(initialPlannedTrips);
 
 
 export const PlannedTripsProvider = (props) => {
-/*
-    const [plannedTrips, setPlannedTrips] = useState(initialPlannedTrips);
-
-    return (
-        <PlannedTripsContext.Provider value={ [plannedTrips, setPlannedTrips] }>
-            {props.children}
-        </PlannedTripsContext.Provider>
-    );*/
     const [plannedTrips, dispatch] = useReducer(contextReducer, initialPlannedTrips);
     const [completedTrip] = useReducer(contextReducer, initialPlannedTrips);
 

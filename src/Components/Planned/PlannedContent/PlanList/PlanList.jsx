@@ -5,14 +5,22 @@ import { PlannedTripsContext, TripActionsContext, FormStatusContext } from "../.
 import DeleteIcon from '@material-ui/icons/Delete';
 import PauseIcon from '@material-ui/icons/Pause';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
+import globe from '../../../../Assets/formImg/globe.svg';
+import asia from '../../../../Assets/formImg/asia.svg';
+import africa from '../../../../Assets/formImg/africa.svg';
+import northAmerica from '../../../../Assets/formImg/north-america.svg';
+import southAmerica from '../../../../Assets/formImg/south-america.svg';
+import australia from '../../../../Assets/formImg/australia.svg';
+import europe from '../../../../Assets/formImg/europe.svg';
 
 
 
 const PlanList = () => {
     const { deleteTrip, plannedTrips, completeTrip, completedTrip } = useContext(PlannedTripsContext);
 
+    const [formData, setFormData] = useContext(FormStatusContext);
     
-    /*const { deleteTrip, plannedTrips } = useContext(TripActionsContext);*/
+
 
     return (
         <div className="planList">
@@ -25,7 +33,7 @@ const PlanList = () => {
                     <Slide direction="down" in mountOnEnter unmountOnExit key={trip.id}>
                         <ListItem>
                             <ListItemAvatar>
-                                <Avatar>
+                                <Avatar src={globe}>
                                     
                                 </Avatar>
                             </ListItemAvatar>
