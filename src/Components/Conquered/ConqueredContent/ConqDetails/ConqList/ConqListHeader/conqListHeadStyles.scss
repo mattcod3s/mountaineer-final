@@ -1,0 +1,25 @@
+.conqListHeader {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .indCont {
+        margin-top: -2vh;
+        margin-left: 22vw;
+    }
+    
+    .conqList__item {
+        width: 54vw;
+        height: 8vh;
+        border-radius: 8px;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(37, 37, 37);
+        font-family: 'Raleway';
+        font-size: 1.4rem;
+    }
+}

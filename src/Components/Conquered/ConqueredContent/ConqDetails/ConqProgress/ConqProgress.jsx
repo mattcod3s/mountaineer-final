@@ -3,7 +3,7 @@ import './conqProgressStyles.scss';
 
 const ConqProgress = () => {
     return (
-        <div>
+        <div className="conqProgress">
             
         </div>
     )

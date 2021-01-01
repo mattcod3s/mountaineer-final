@@ -17,7 +17,7 @@ import europe from '../../../../Assets/formImg/europe.svg';
 
 
 const PlanList = () => {
-    const { deleteTrip, plannedTrips, completeTrip, completedTrip, pauseTrip } = useContext(PlannedTripsContext);
+    const { deleteTrip, plannedTrips, completeTrip, completedTrip } = useContext(PlannedTripsContext);
 
     const [formData, setFormData] = useContext(FormStatusContext);
 
@@ -66,14 +66,9 @@ const PlanList = () => {
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText primary={trip.mountain + ' -- ' + trip.continent} secondary={`Start Date : ${trip.startDate} - End Date : ${trip.endDate}`}/>
-                            <ListItemSecondaryAction style={{paddingRight: '240px'}}>
-                                <IconButton edge="end" aria-label="finished">
+                            <ListItemSecondaryAction style={{paddingRight: '140px'}}>
+                                <IconButton edge="end" aria-label="finished" onClick={() => completeTrip(trip)}>
                                     <DoneAllIcon style={{color: 'green'}}/>
-                                </IconButton>
-                            </ListItemSecondaryAction>
-                            <ListItemSecondaryAction style={{ paddingRight: '140px'}}>
-                                <IconButton edge="end" aria-label="pause" onClick={() => pauseTrip(trip.id)}>
-                                    <PauseIcon style={{color: 'yellow'}} />
                                 </IconButton>
                             </ListItemSecondaryAction>
                             <ListItemSecondaryAction style={{ paddingRight: '40px'}}>

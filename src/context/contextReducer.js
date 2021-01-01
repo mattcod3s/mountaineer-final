@@ -6,17 +6,13 @@ const contextReducer = (state, action) => {
     switch (action.type) {
         case 'DELETE_TRIP' : 
             plannedTrips = state.filter((t) => t.id !== action.payload );
-
             return plannedTrips;
         case 'ADD_TRIP' : 
             plannedTrips = [action.payload, ...state];
-
-            return plannedTrips;
-        case 'PAUSE_TRIP' :
-            plannedTrips = state.filter((t) => t.id !== action.payload );
             return plannedTrips;
         case 'COMPLETE_TRIP' :
-            completedTrip = [action.payload];
+            plannedTrips = state.filter((t) => t.id !== action.payload.id );
+            return plannedTrips;
         default : 
             return state;
 

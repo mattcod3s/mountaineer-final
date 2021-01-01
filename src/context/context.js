@@ -31,6 +31,16 @@ const initialPlannedTrips = [
     }
 ];
 
+const ConqueredTrips = [
+    {
+        id : 6,
+        continent : 'ASIA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    }
+];
+
 export const ConqStatusContext = createContext();
 
 export const ConqStatusProvider = (props) => {
@@ -85,12 +95,9 @@ export const PlannedTripsProvider = (props) => {
         dispatch({ type : 'ADD_TRIP', payload : trip });
     }
 
-    const pauseTrip = (id) => {
-        dispatch({type : 'PAUSE_TRIP', payload: id})
-    }
-
     const completeTrip = (trip) => {
         dispatch({type : 'COMPLETE_TRIP', payload : trip});
+        ConqueredTrips.push(trip);
     }
 
     return (
@@ -98,16 +105,15 @@ export const PlannedTripsProvider = (props) => {
             deleteTrip, 
             addTrip, 
             plannedTrips,
-            completedTrip,
             completeTrip,
-            pauseTrip
+            ConqueredTrips
         }}>
             {props.children}
         </PlannedTripsContext.Provider>
     )
 }
 
-
+/*
 export const TripActionsContext = createContext(initialPlannedTrips);
 
 export const TripActionProvider = (props) => {
@@ -130,4 +136,4 @@ export const TripActionProvider = (props) => {
             {props.children}
         </TripActionsContext.Provider>
     )
-}
+}*/
