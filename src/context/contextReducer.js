@@ -1,7 +1,6 @@
 const contextReducer = (state, action) => {
 
     let plannedTrips;
-    let completedTrip;
 
     switch (action.type) {
         case 'DELETE_TRIP' : 

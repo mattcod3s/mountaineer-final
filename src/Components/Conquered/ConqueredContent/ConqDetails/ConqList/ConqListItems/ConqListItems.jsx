@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import './conqListItemStyles.scss';
-import { PlannedTripsContext, TripActionsContext, FormStatusContext } from "../../../../../../context/context";
+import { PlannedTripsContext, TripActionsContext, FormStatusContext, ConqListContext } from "../../../../../../context/context";
 import { List as MUIList, ListItem, Typography, ListItemAvatar, Divider ,ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide, MuiThemeProvider } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
+
 
 const ConqListItems = () => {
 
     const { completeTrip, completedTrip, ConqueredTrips } = useContext(PlannedTripsContext);
+    const [conqIndex, setConqIndex] = useContext(ConqListContext);
 
     return (
         <div className="conqListItems">
