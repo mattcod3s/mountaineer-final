@@ -82,15 +82,7 @@ const constants = [
                 elevation: '6,655 m',
                 NormalRoute : '--'
             }
-            , 
-
-            {
-                name : 'Llullaillaco',
-                country : 'Chile',
-                mountainRange : 'Atacama',
-                elevation: '6,739 m',
-                NormalRoute : '--'
-            }
+            
         ],
         Image : ''
     },
@@ -180,24 +172,7 @@ const constants = [
                 elevation: '4,949 m',
                 NormalRoute : '--'
             }
-             ,
-
-            {
-                name : 'Mount Wood',
-                country : 'US',
-                mountainRange : 'Wrangell Mountains',
-                elevation: '4,949 m',
-                NormalRoute : '--'
-            },
              
-
-            {
-                name : 'Mount Bear',
-                country : 'US',
-                mountainRange : 'Saint Elias',
-                elevation: '4,907 m',
-                NormalRoute : '--'
-            },
         ]
     },
 
@@ -360,6 +335,24 @@ const constants = [
                 elevation: '4,767 m',
                 NormalRoute : ''
             },
+
+            , 
+
+            {
+                name : 'Llullaillaco',
+                country : 'Chile',
+                mountainRange : 'Atacama',
+                elevation: '6,739 m',
+                NormalRoute : '--'
+            },
+
+            {
+                name : 'Mount Wood',
+                country : 'US',
+                mountainRange : 'Wrangell Mountains',
+                elevation: '4,949 m',
+                NormalRoute : '--'
+            }
         ]
     },
 
@@ -423,6 +416,30 @@ const constants = [
                 mountainRange : '--',
                 elevation: '1,986 m',
                 NormalRoute : ''
+            },
+
+            {
+                name : 'Mount Bear',
+                country : 'US',
+                mountainRange : 'Saint Elias',
+                elevation: '4,907 m',
+                NormalRoute : '--'
+            },
+
+            {
+                name : 'Mount Bear',
+                country : 'US',
+                mountainRange : 'Saint Elias',
+                elevation: '4,907 m',
+                NormalRoute : '--'
+            },
+
+            {
+                name : 'Mount Bear',
+                country : 'US',
+                mountainRange : 'Saint Elias',
+                elevation: '4,907 m',
+                NormalRoute : '--'
             },
         ]
     }, 

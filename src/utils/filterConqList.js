@@ -4,7 +4,7 @@ const filterList = (index, state) => {
     switch (index) {
         case 1:
             activeTrips = state.filter((t) => t.continent === 'TOP_WORLDWIDE');
-            
+        
             return activeTrips;
         case 2:
             activeTrips = state.filter((t) => t.continent === 'ASIA');
