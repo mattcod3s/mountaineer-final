@@ -125,6 +125,31 @@ export const ConqListProvider = (props) => {
     );
 }
 
+export const PercentLoaderContext = createContext();
+
+export const PercentLoaderProvider = (props) => {
+    const [progressPercent, setProgressPercent] = useState(33);
+
+    return (
+        <PercentLoaderContext.Provider value={ [progressPercent, setProgressPercent] }>
+            {props.children}
+        </PercentLoaderContext.Provider>
+    );
+}
+
+export const ActiveTripsContext = createContext();
+
+export const ActiveTripsProvider = (props) => {
+    const [activeTrips, setActiveTrips] = useState(ConqueredTrips);
+
+    return (
+        <ActiveTripsContext.Provider value={ [activeTrips, setActiveTrips] }>
+            {props.children}
+        </ActiveTripsContext.Provider>
+    );
+}
+
+
 /*
 export const TripActionsContext = createContext(initialPlannedTrips);
 

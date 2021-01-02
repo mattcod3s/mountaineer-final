@@ -20,7 +20,6 @@ const PlanList = () => {
     const { deleteTrip, plannedTrips, completeTrip, completedTrip } = useContext(PlannedTripsContext);
 
     const [formData, setFormData] = useContext(FormStatusContext);
-
   
     const chooseImg = (trip) => {
         let currentImage;

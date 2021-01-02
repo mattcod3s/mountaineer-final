@@ -1,18 +1,22 @@
 import React, { useContext, useState } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { PlanStatusProvider,  ConqStatusProvider, FormStatusProvider, PlannedTripsProvider, ConqListProvider } from './context/context';
+import { ActiveTripsProvider,PlanStatusProvider,  ConqStatusProvider, FormStatusProvider, PlannedTripsProvider, ConqListProvider, PercentLoaderProvider } from './context/context';
 
 
 ReactDOM.render(
     <FormStatusProvider>
         <ConqListProvider>
             <PlannedTripsProvider>
-                <PlanStatusProvider>
-                    <ConqStatusProvider>
-                        <App/>
-                    </ConqStatusProvider>
-                </PlanStatusProvider>
+                <ActiveTripsProvider>
+                    <PercentLoaderProvider>
+                        <PlanStatusProvider>
+                            <ConqStatusProvider>
+                                <App/>
+                            </ConqStatusProvider>
+                        </PlanStatusProvider>
+                    </PercentLoaderProvider>
+                </ActiveTripsProvider>
             </PlannedTripsProvider>
         </ConqListProvider>
     </FormStatusProvider>
