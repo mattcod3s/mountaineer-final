@@ -21,7 +21,7 @@ const ConqListItems = () => {
                             </ListItemAvatar>
                             <ListItemText primary={trip.mountain + ' -- ' + trip.continent} secondary={`Start Date : ${trip.startDate} - End Date : ${trip.endDate}`}/>
                             <ListItemSecondaryAction style={{paddingRight: '30px'}}>
-                                <IconButton edge="end" aria-label="finished" onClick={() => completeTrip(trip)}>
+                                <IconButton edge="end" aria-label="info">
                                     <InfoIcon style={{color: 'white'}}/>
                                 </IconButton>
                             </ListItemSecondaryAction>

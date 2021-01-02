@@ -113,6 +113,18 @@ export const PlannedTripsProvider = (props) => {
     )
 }
 
+export const ConqListContext = createContext();
+
+export const ConqListProvider = (props) => {
+    const [conqIndex, setConqIndex] = useState(0);
+
+    return (
+        <ConqListContext.Provider value={ [conqIndex, setConqIndex] }>
+            {props.children}
+        </ConqListContext.Provider>
+    );
+}
+
 /*
 export const TripActionsContext = createContext(initialPlannedTrips);
 
