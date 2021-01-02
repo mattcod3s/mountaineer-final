@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import './conqListHeadStyles.scss';
 import Carousel from 'react-material-ui-carousel';
-import { ConqListContext } from '../../../../../../context/context';
+import { ConqListContext,  PlannedTripsContext } from '../../../../../../context/context';
+import filterConqList from '../../../../../../utils/filterConqList';
 
 const ConqListHeader = () => {
-
+    const { ConqueredTrips } = useContext(PlannedTripsContext);
     const [conqIndex, setConqIndex] = useContext(ConqListContext);
 
     const listItems = [

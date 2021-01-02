@@ -1,31 +1,38 @@
 const filterList = (index, state) => {
+    let activeTrips = [...state];
+
     switch (index) {
-        case 0:
-            state.filter((t) => t.continent !== '');
-            break;
         case 1:
-            state.filter((t) => t.continent === 'TOP_WORLDWIDE');
-            break;
+            activeTrips = state.filter((t) => t.continent === 'TOP_WORLDWIDE');
+            
+            return activeTrips;
         case 2:
-            state.filter((t) => t.continent === 'ASIA');
-            break;
+            activeTrips = state.filter((t) => t.continent === 'ASIA');
+            
+            return activeTrips;
         case 3:
-            state.filter((t) => t.continent === 'AUSTRALIA');
-            break;
+            activeTrips = state.filter((t) => t.continent === 'AUSTRALIA');
+            
+            return activeTrips;
         case 4:
-            state.filter((t) => t.continent === 'EUROPE');
-            break;
+            activeTrips = state.filter((t) => t.continent === 'EUROPE');
+            
+            return activeTrips;
         case 5:
-            state.filter((t) => t.continent === 'AFRICA');
-            break;
+            activeTrips = state.filter((t) => t.continent === 'AFRICA');
+            
+            return activeTrips;
         case 6:
-            state.filter((t) => t.continent === 'SOUTH_AMERICA');
-            break;
+            activeTrips = state.filter((t) => t.continent === 'SOUTH_AMERICA');
+            
+            return activeTrips;
         case 7:
-            state.filter((t) => t.continent === 'NORTH_AMERICA');
-            break;
+            activeTrips = state.filter((t) => t.continent === 'NORTH_AMERICA');
+            
+            return activeTrips;
         default:
-            break;
+            
+        return activeTrips;
     }
 }
 
