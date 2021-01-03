@@ -2,6 +2,10 @@ const filterList = (index, state) => {
     let activeTrips = [...state];
 
     switch (index) {
+        case 0:
+            activeTrips = state.filter((t) => t.continent !== 'T');
+        
+            return activeTrips;
         case 1:
             activeTrips = state.filter((t) => t.continent === 'TOP_WORLDWIDE');
         
