@@ -15,7 +15,7 @@ const useTripData = () => {
 
     const continents = ['ASIA', 'SOUTH_AMERICA', 'NORTH_AMERICA', 'AUSTRALIA', 'AFRICA', 'EUROPE'];
 
-    const colors = ['red', 'blue', 'green', 'purple', 'yellow', 'orange'];
+    const colors = ['#8577BD', '#544C78', '#AE9CF7', '#9C8CDE', '#576FF7', '#4254BD'];
     const chartData = {
         datasets : [{
             data : sumfunc(),

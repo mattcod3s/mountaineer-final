@@ -10,7 +10,7 @@ const ConqProgress = () => {
     setProgressPercent( ((activeTrips.length) / 10) * 100 );
     return (
         <div className='conqProgress' >
-            <SemiCircleProgressBar strokeWidth={5} percentage={progressPercent} background={'rgba(255,255,255,0.3)'} showPercentValue stroke={'white'} diameter={400}/>
+            <SemiCircleProgressBar strokeWidth={5} percentage={progressPercent} background={'rgba(0,0,0,0.2)'} showPercentValue stroke={'#8577BD'} diameter={400}/>
         </div>
     )
 }
