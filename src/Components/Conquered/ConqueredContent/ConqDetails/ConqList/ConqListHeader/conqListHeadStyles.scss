@@ -23,3 +23,10 @@
         font-size: 1.4rem;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .conqList__item {
+        width: 86vw !important;
+        font-size: 1.3rem !important;
+    }
+}

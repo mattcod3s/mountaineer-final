@@ -1,4 +1,4 @@
-.conqProgress {
+.pie__data {
     width: 32vw;
     height: 90%;
     background: white;
@@ -7,15 +7,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(50,50,50);
-    font-family: 'Raleway';
-    font-size: 3rem;
+}
+
+.cardPie__data {
+    width: 32vw;
+    height: 100%;
+    background: transparent; 
+    box-shadow: 0 0 0 0;
 }
 
 @media screen and (max-width: 500px) {
-    .conqProgress {
+    .pie__data {
         width: 96vw !important;
         height: 45vh !important;
-        margin-bottom: -10vh !important;
+        margin-bottom: 10vh !important;
+        margin-top: 10vh !important;
+
+        .cardPie__data {
+            width: 96vw !important;
+            height: 100% !important;
+        }
     }
 }

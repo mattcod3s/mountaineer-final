@@ -1,0 +1,36 @@
+.bar__data {
+    width: 56vw;
+    height: 100%;
+    background: rgb(75, 74, 74);
+    border-radius: 12px;
+    box-shadow: rgba(167, 195, 207, 0.25) 0px 25px 50px -10px, rgba(255, 255, 255, 0.3) 0px 15px 30px -15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .bar {
+        width: 84%;
+        height: 80%;
+    }
+}
+
+
+
+@media screen and (max-width: 500px) {
+
+
+    .bar__data {
+        width: 96vw !important;
+        height: 45vh !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .bar {
+            margin-top: 10vh;
+            height: 100% !important;
+            width: 96vw !important;
+        }
+    }
+}

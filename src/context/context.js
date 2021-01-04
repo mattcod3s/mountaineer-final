@@ -23,22 +23,79 @@ const initialState = {
 
 const initialPlannedTrips = [
     {
-        id : 6,
+        id : 2,
         continent : 'ASIA',
         mountain : 'MOUNT EVEREST',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
-    }
+    }, 
+    {
+        id : 5,
+        continent : 'SOUTH_AMERICA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    }, 
+    {
+        id : 9,
+        continent : 'SOUTH_AMERICA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    }, 
+    {
+        id : 12,
+        continent : 'EUROPE',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    }, 
+
 ];
 
 const ConqueredTrips = [
     {
-        id : 6,
+        id : 31,
         continent : 'ASIA',
         mountain : 'MOUNT EVEREST',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
-    }
+    },
+    {
+        id : 32,
+        continent : 'NORTH_AMERICA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    },
+    {
+        id : 33,
+        continent : 'NORTH_AMERICA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    },
+    {
+        id : 34,
+        continent : 'EUROPE',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    },
+    {
+        id : 35,
+        continent : 'EUROPE',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    },
+    {
+        id : 36,
+        continent : 'AFRICA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    },
 ];
 
 export const ConqStatusContext = createContext();
@@ -148,29 +205,3 @@ export const ActiveTripsProvider = (props) => {
         </ActiveTripsContext.Provider>
     );
 }
-
-
-/*
-export const TripActionsContext = createContext(initialPlannedTrips);
-
-export const TripActionProvider = (props) => {
-    const [plannedAdventures, dispatch] = useReducer(contextReducer, initialPlannedTrips);
-
-    const deleteTrip = (id) => {
-        dispatch({ type : 'DELETE_TRIP', payload : id});
-    }
-
-    const addTrip = (trip) => {
-        dispatch({ type : 'ADD_TRIP', payload : trip });
-    }
-
-    return (
-        <TripActionsContext.Provider value={{ 
-            deleteTrip, 
-            addTrip, 
-            plannedAdventures
-        }}>
-            {props.children}
-        </TripActionsContext.Provider>
-    )
-}*/

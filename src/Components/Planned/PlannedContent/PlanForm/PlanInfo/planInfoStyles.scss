@@ -1,0 +1,30 @@
+.info__wrapper {
+    width: 30vw; 
+    height: 35vh; 
+    border-radius: 15px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(211, 209, 209);
+
+    .info__content {
+        width: 20vw;
+        height: 25vh;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: 65px;
+        transition-duration: 0.25s;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .info__wrapper {
+        width: 94vw !important; 
+    
+        .info__content {
+            width: 80vw !important;
+            height: 26vh !important;
+        }
+    }
+}
+

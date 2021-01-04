@@ -31,3 +31,15 @@
     filter: blur(2px);
     border-top: 5px solid black;
 }
+
+@media screen and (max-width: 500px) {
+    .layer_active_conq {
+        height: 250vh !important;
+        bottom: -250vh !important;
+    }
+    
+    .layer_active_plan {
+        height: 180vh !important;
+        bottom: -180vh !important;
+    }
+}

@@ -7,3 +7,14 @@
     align-items: center;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 500px) {
+    .conqData {
+        width: 96vw;
+        height: 110vh;
+        flex-direction: column;
+        margin-bottom: -30vh;
+        justify-content: space-around;
+    }
+
+}

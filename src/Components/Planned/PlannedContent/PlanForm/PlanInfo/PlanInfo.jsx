@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {FormStatusContext, FormStatusProvider} from '../../../../../context/context';
-import '../planFormStyles.scss';
+import './planInfoStyles.scss';
 import globe from '../../../../../Assets/formImg/globe.svg';
 import asia from '../../../../../Assets/formImg/asia.svg';
 import africa from '../../../../../Assets/formImg/africa.svg';
@@ -38,23 +38,9 @@ const PlanInfo = () => {
     }
 
     return (
-        <div style={{
-            width: '30vw', 
-            height: '35vh',  
-            borderRadius: '15px', 
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'rgb(211, 209, 209)'
-        }}>
-            <div style={{
-                width: '20vw',
-                height: '25vh',
+        <div className={'info__wrapper'}>
+            <div className={'info__content'} style={{
                 backgroundImage: `url(${currentImage})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPositionX: '40px',
-                transitionDuration: '0.25s'
             }} >
 
             </div>

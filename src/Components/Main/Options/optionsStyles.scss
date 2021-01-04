@@ -149,3 +149,54 @@
         }
     }
 }
+
+@media screen and (max-width: 500px) {
+    
+    .options__menu__scrolled {
+        margin-bottom: 50px !important;
+    }
+
+        .option__menu__container {
+            width: 92vw !important;
+            height: 12.5vw !important;
+            border-radius: 10px !important;
+            margin-bottom: 7.5vh !important;
+
+            .option__menu__option {
+                width: 40vw !important;
+                height: 8vw !important;
+                border-radius: 8px !important;
+
+                .menu__option__content {
+                    justify-content: space-around !important;
+
+                    .option__content__title {
+                        font-size: 0.8rem !important;
+                    }
+
+                    .divider {
+                        margin-left: 8% !important;
+                        margin-right: 4% !important;
+                    }
+                }
+            }
+            .option__menu__active {
+                width: 40vw !important;
+                height: 8vw !important;
+                border-radius: 8px !important;
+
+                .menu__option__content {
+                    justify-content: space-around !important;
+
+                    .option__content__title {
+                        font-size: 0.8rem !important;
+                    }
+
+                    .divider {
+                        margin-left: 8% !important;
+                        margin-right: 4% !important;
+                    }
+                }
+            }
+        }
+    }

@@ -11,3 +11,9 @@
     align-items: center;
     backdrop-filter: blur(5px);
 }
+
+@media screen and (max-width: 500px) {
+    .plannedContent {
+        height: 180vh !important ;
+    }
+}
