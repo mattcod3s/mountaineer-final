@@ -5,6 +5,7 @@ import {FormStatusContext, FormStatusProvider, PlannedTripsContext} from '../../
 import { v4 as uuidv4 } from 'uuid';
 import constants from '../../../../../constants/constants';
 import formatDate from '../../../../../utils/formatDate';
+import CustomizedSnackbar from '../../../../SnackBar/SnackBar';
 
 
 import globe from '../../../../../Assets/formImg/globe.svg';
@@ -21,7 +22,7 @@ const Form = () => {
     const [formData, setFormData] = useContext(FormStatusContext);
     const { addTrip, plannedTrips } = useContext(PlannedTripsContext);
     const [dateError, setDateError] = useState(false);
-
+    const [ open, setOpen ] = useState(false);
 
 
     const handleFormClick = (e) => {
@@ -33,6 +34,7 @@ const Form = () => {
             e.preventDefault();
             const pTrip = {...formData, id : uuidv4(), continent : formData.continent, mountain : formData.mountain, startDate : formData.startDate, endDate: formData.endDate, img: ''}
             addTrip(pTrip);
+            setOpen(true);
         }
         setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img : ''});
         setDateError(formatDate(formData.startDate, formData.endDate));
@@ -42,6 +44,7 @@ const Form = () => {
 
     return (
         <Grid container spacing={2}>
+            <CustomizedSnackbar open={open} setOpen={setOpen}/>
             <Grid item xs={6} >
                 <FormControl fullWidth>
                     <InputLabel>CONTINENT</InputLabel>

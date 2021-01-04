@@ -150,7 +150,7 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1023px) {
     
     .options__menu__scrolled {
         margin-bottom: 50px !important;
@@ -200,3 +200,10 @@
             }
         }
     }
+
+    @media screen and (max-width: 1023px) and (min-width: 500px) {
+        .options__menu__scrolled {
+            margin-bottom: 0px !important;
+        }
+    }
+
