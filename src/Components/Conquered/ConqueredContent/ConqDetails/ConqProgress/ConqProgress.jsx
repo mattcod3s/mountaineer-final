@@ -7,7 +7,10 @@ import { ActiveTripsContext, PercentLoaderContext } from '../../../../../context
 const ConqProgress = () => {
     const [progressPercent, setProgressPercent] = useContext(PercentLoaderContext);
     const [activeTrips, setActiveTrips] = useContext(ActiveTripsContext);
-    setProgressPercent( ((activeTrips.length) / 10) * 100 );
+    
+    let finLength = activeTrips.length > 10 ? 50 : 10
+    
+    setProgressPercent( ((activeTrips.length) / finLength) * 100 );
     return (
         <div className='conqProgress' >
             <SemiCircleProgressBar strokeWidth={5} percentage={progressPercent} background={'rgba(0,0,0,0.2)'} showPercentValue stroke={'#8577BD'} diameter={360}/>

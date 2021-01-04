@@ -64,13 +64,13 @@ const PlanList = () => {
                                     
                                 </Avatar>
                             </ListItemAvatar>
-                            <ListItemText primary={trip.mountain + ' -- ' + trip.continent} secondary={`Start Date : ${trip.startDate} - End Date : ${trip.endDate}`}/>
-                            <ListItemSecondaryAction style={{paddingRight: '140px'}}>
+                            <ListItemText  primary={ trip.continent} secondary={`Start: ${trip.startDate}`}/>
+                            <ListItemSecondaryAction style={{paddingRight: '100px'}}>
                                 <IconButton edge="end" aria-label="finished" onClick={() => completeTrip(trip)}>
                                     <DoneAllIcon style={{color: 'green'}}/>
                                 </IconButton>
                             </ListItemSecondaryAction>
-                            <ListItemSecondaryAction style={{ paddingRight: '40px'}}>
+                            <ListItemSecondaryAction style={{ paddingRight: '30px'}}>
                                 <IconButton edge="end" aria-label="delete" onClick={() => deleteTrip(trip.id)}>
                                     <DeleteIcon  style={{color: 'red'}}/>
                                 </IconButton>

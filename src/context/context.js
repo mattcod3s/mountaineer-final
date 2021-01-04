@@ -9,7 +9,8 @@ import australia from '../Assets/formImg/australia.svg';
 import europe from '../Assets/formImg/europe.svg';
 
 
-
+const initialLocalDataOne = JSON.parse(localStorage.getItem('initialPlannedTrips')) || [];
+const initialLocalDataTwo = JSON.parse(localStorage.getItem('ConqueredTrips')) || [];
 
 const initialState = {
     id : '',
@@ -96,6 +97,41 @@ const ConqueredTrips = [
         startDate : '10-12-2020',
         endDate : '20-12-2020',
     },
+    {
+        id : 9343443,
+        continent : 'SOUTH_AMERICA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    }, 
+    {
+        id : 98683,
+        continent : 'SOUTH_AMERICA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    }, 
+    {
+        id : 90272,
+        continent : 'SOUTH_AMERICA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    }, 
+    {
+        id : 15,
+        continent : 'SOUTH_AMERICA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    }, 
+    {
+        id : 19,
+        continent : 'SOUTH_AMERICA',
+        mountain : 'MOUNT EVEREST',
+        startDate : '10-12-2020',
+        endDate : '20-12-2020',
+    }, 
 ];
 
 export const ConqStatusContext = createContext();
@@ -137,12 +173,12 @@ export const FormStatusProvider = (props) => {
     );
 }
 
-export const PlannedTripsContext = createContext(initialPlannedTrips);
+export const PlannedTripsContext = createContext(initialLocalDataOne);
 
 
 export const PlannedTripsProvider = (props) => {
-    const [plannedTrips, dispatch] = useReducer(contextReducer, initialPlannedTrips);
-    const [completedTrip] = useReducer(contextReducer, initialPlannedTrips);
+    const [plannedTrips, dispatch] = useReducer(contextReducer, initialLocalDataOne);
+    const [completedTrip] = useReducer(contextReducer, initialLocalDataOne);
 
     const deleteTrip = (id) => {
         dispatch({ type : 'DELETE_TRIP', payload : id});
@@ -197,7 +233,7 @@ export const PercentLoaderProvider = (props) => {
 export const ActiveTripsContext = createContext();
 
 export const ActiveTripsProvider = (props) => {
-    const [activeTrips, setActiveTrips] = useState(ConqueredTrips);
+    const [activeTrips, setActiveTrips] = useState(initialLocalDataTwo);
 
     return (
         <ActiveTripsContext.Provider value={ [activeTrips, setActiveTrips] }>
