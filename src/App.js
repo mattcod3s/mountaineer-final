@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './app.scss';
 import './reset.css';
 import Main from './Components/Main/Main';
 import Conquered from './Components/Conquered/Conquered';
 import Planned from './Components/Planned/Planned';
-import { PlanStatusProvider, PlanStatusContext, ConqStatusProvider, ConqStatusContext } from './context/context';
+import { PlanStatusContext, ConqStatusContext } from './context/context';
 import Layer from './Components/Layer/Layer';
 
 

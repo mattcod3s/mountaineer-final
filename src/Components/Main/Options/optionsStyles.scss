@@ -29,7 +29,7 @@
 
 .options__menu__scrolled {
     animation-name: scrollMenu !important;
-    z-index: 999;
+    z-index: 998;
 }
 
 .options__menu {
@@ -44,7 +44,7 @@
     animation-name: scrollInit;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    z-index: 999;
+    z-index: 998;
 
     .option__menu__container {
         width: 96vw;
@@ -150,7 +150,7 @@
     }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
     
     .options__menu__scrolled {
         margin-bottom: 50px !important;
@@ -201,9 +201,15 @@
         }
     }
 
-    @media screen and (max-width: 1023px) and (min-width: 500px) {
+    @media screen and (max-width: 1024px) and (min-width: 500px) {
         .options__menu__scrolled {
             margin-bottom: 0px !important;
+        }
+    }
+
+    @media screen and (max-width: 1024px) and (min-height: 1366px) {
+        .options__menu__scrolled {
+            margin-bottom: -50px !important;
         }
     }
 

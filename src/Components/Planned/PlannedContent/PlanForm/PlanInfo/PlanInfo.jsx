@@ -1,5 +1,5 @@
-import React, {useState, useContext} from 'react';
-import {FormStatusContext, FormStatusProvider} from '../../../../../context/context';
+import React, { useContext } from 'react';
+import { FormStatusContext } from '../../../../../context/context';
 import './planInfoStyles.scss';
 import globe from '../../../../../Assets/formImg/globe.svg';
 import asia from '../../../../../Assets/formImg/asia.svg';

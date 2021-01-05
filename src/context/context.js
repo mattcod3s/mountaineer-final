@@ -1,12 +1,6 @@
 import React, { useState, createContext, useReducer } from 'react';
 import contextReducer from './contextReducer';
 import globe from '../Assets/formImg/globe.svg';
-import asia from '../Assets/formImg/asia.svg';
-import africa from '../Assets/formImg/africa.svg';
-import northAmerica from '../Assets/formImg/north-america.svg';
-import southAmerica from '../Assets/formImg/south-america.svg';
-import australia from '../Assets/formImg/australia.svg';
-import europe from '../Assets/formImg/europe.svg';
 
 
 const initialLocalDataOne = JSON.parse(localStorage.getItem('initialPlannedTrips')) || [];

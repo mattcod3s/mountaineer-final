@@ -1,14 +1,13 @@
 import React, { useContext } from 'react';
 import './conqListHeadStyles.scss';
 import Carousel from 'react-material-ui-carousel';
-import { ActiveTripsContext, ConqListContext,  PlannedTripsContext, PercentLoaderContext } from '../../../../../../context/context';
-import filterConqList from '../../../../../../utils/filterConqList';
+import { ConqListContext, PercentLoaderContext } from '../../../../../../context/context';
+import { v4 as uuidv4 } from 'uuid';
 
 const ConqListHeader = () => {
-    const { ConqueredTrips } = useContext(PlannedTripsContext);
+
     const [conqIndex, setConqIndex] = useContext(ConqListContext);
     const [progressPercent, setProgressPercent] = useContext(PercentLoaderContext);
-    const [activeTrips, setActiveTrips] = useContext(ActiveTripsContext);
 
 
     const listItems = [
@@ -46,7 +45,7 @@ const ConqListHeader = () => {
             }}
             animation={"slide"} indicators={true} navButtonsAlwaysInvisible indicatorContainerProps={{className: 'indCont'}} autoPlay={false}>
                 {listItems.map( (item, i) => 
-                <div className='conqList__item'>
+                <div key={uuidv4()} className='conqList__item'>
                     <h2>{item.name}</h2>
                 </div> )}
             </Carousel>

@@ -6,7 +6,7 @@ import './conqBarStyles.scss';
 
 const ConqBar = () => {
 
-    const { total, chartData } = useTripData();
+    const { chartData } = useTripData();
 
     return (
         <div className='bar__data' >

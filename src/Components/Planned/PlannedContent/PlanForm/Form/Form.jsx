@@ -1,26 +1,16 @@
 import React, { useState, useContext } from 'react';
-import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem, NativeSelect } from '@material-ui/core';
+import { TextField, Grid, Button, FormControl, InputLabel, NativeSelect } from '@material-ui/core';
 import './formStyles.scss';
-import {FormStatusContext, FormStatusProvider, PlannedTripsContext} from '../../../../../context/context';
+import {FormStatusContext, PlannedTripsContext} from '../../../../../context/context';
 import { v4 as uuidv4 } from 'uuid';
 import constants from '../../../../../constants/constants';
 import formatDate from '../../../../../utils/formatDate';
 import CustomizedSnackbar from '../../../../SnackBar/SnackBar';
 
-
-import globe from '../../../../../Assets/formImg/globe.svg';
-import asia from '../../../../../Assets/formImg/asia.svg';
-import africa from '../../../../../Assets/formImg/africa.svg';
-import northAmerica from '../../../../../Assets/formImg/north-america.svg';
-import southAmerica from '../../../../../Assets/formImg/south-america.svg';
-import australia from '../../../../../Assets/formImg/australia.svg';
-import europe from '../../../../../Assets/formImg/europe.svg';
-
-
 const Form = () => {
 
     const [formData, setFormData] = useContext(FormStatusContext);
-    const { addTrip, plannedTrips } = useContext(PlannedTripsContext);
+    const { addTrip } = useContext(PlannedTripsContext);
     const [dateError, setDateError] = useState(false);
     const [ open, setOpen ] = useState(false);
 
@@ -55,7 +45,7 @@ const Form = () => {
                         }}
                     >
                         <option value={null}></option>
-                        {constants.map((cont) => <option value={cont.continent}>{cont.continent}</option>)}
+                        {constants.map((cont) => <option key={uuidv4()} value={cont.continent}>{cont.continent}</option>)}
                     </NativeSelect>
                 </FormControl>
             </Grid>
@@ -66,11 +56,11 @@ const Form = () => {
                         value={formData.mountain}
                         onChange={(e) => setFormData({ ...formData, mountain : e.target.value })}
                     >
-                        <option value={null}></option>
+                        <option key={uuidv4()} value={null}></option>
                         
                         {constants.map((cont) => {
                             if (formData.continent === cont.continent){
-                                return (cont.mountains.map((m) => <option value={m.name}>{m.name}</option>))
+                                return (cont.mountains.map((m) => <option key={uuidv4()} value={m.name}>{m.name}</option>))
                             }
                         })}
                     </NativeSelect>

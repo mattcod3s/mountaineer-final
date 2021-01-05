@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './conqListItemStyles.scss';
-import { ActiveTripsContext, PlannedTripsContext, TripActionsContext, FormStatusContext, ConqListContext } from "../../../../../../context/context";
-import { List as MUIList, ListItem, Typography, ListItemAvatar, Divider ,ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide, MuiThemeProvider } from '@material-ui/core';
+import { ActiveTripsContext, PlannedTripsContext, ConqListContext } from "../../../../../../context/context";
+import { List as MUIList, ListItem,  ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import filterList from '../../../../../../utils/filterConqList';
 
@@ -9,7 +9,7 @@ import filterList from '../../../../../../utils/filterConqList';
 const ConqListItems = () => {
 
 
-    const { completeTrip, completedTrip, ConqueredTrips } = useContext(PlannedTripsContext);
+    const { ConqueredTrips } = useContext(PlannedTripsContext);
     const [conqIndex, setConqIndex] = useContext(ConqListContext);
     const [activeTrips, setActiveTrips] = useContext(ActiveTripsContext);
 

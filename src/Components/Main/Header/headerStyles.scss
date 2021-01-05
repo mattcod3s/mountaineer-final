@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 
+@keyframes titleShow {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
 .header__wrapper {
     width: 100vw;
     height: 50vh;
@@ -28,6 +39,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        opacity: 0;
+        transform: translateY(-100px);
+        animation-name: titleShow;
+        animation-duration: 0.5s;
+        animation-delay: 0.25s;
+        animation-fill-mode: forwards;
 
         .header__content__title {
             font-size: 3.8rem;
@@ -39,7 +56,7 @@
     }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
     .header__content__title {
         font-size: 2.8rem !important;
         

@@ -15,7 +15,11 @@ const formatDate = (startDate, endDate) => {
     const dayE = `${e.getDate()}`;
     const yearE = `${e.getFullYear()}`;
 
-    if ( parseInt(dayE, 10) > parseInt(dayS, 10)) {
+    if (parseInt(yearE, 10) > parseInt(yearS, 10)) {
+        isError = false;
+    } else if (parseInt(monthE, 10) > parseInt(monthS, 10)) {
+        isError = false;
+    } else if ( parseInt(dayE, 10) > parseInt(dayS, 10)) {
         isError = false;
     } else if (parseInt(dayS, 10) > parseInt(dayE, 10)){
         isError = true;

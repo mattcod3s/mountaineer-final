@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
-import { List as MUIList, ListItem, Typography, ListItemAvatar, Divider ,ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide, MuiThemeProvider } from '@material-ui/core';
+import React, { useContext } from 'react';
+import { List as MUIList, ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide } from '@material-ui/core';
 import './planListStyles.scss';
-import { PlannedTripsContext, TripActionsContext, FormStatusContext } from "../../../../context/context";
+import { PlannedTripsContext } from "../../../../context/context";
 import DeleteIcon from '@material-ui/icons/Delete';
-import PauseIcon from '@material-ui/icons/Pause';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
 import globe from '../../../../Assets/formImg/globe.svg';
 import asia from '../../../../Assets/formImg/asia.svg';
@@ -17,9 +16,7 @@ import europe from '../../../../Assets/formImg/europe.svg';
 
 
 const PlanList = () => {
-    const { deleteTrip, plannedTrips, completeTrip, completedTrip } = useContext(PlannedTripsContext);
-
-    const [formData, setFormData] = useContext(FormStatusContext);
+    const { deleteTrip, plannedTrips, completeTrip } = useContext(PlannedTripsContext);
   
     const chooseImg = (trip) => {
         let currentImage;
