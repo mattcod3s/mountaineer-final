@@ -9,7 +9,7 @@ import Layer from './Components/Layer/Layer';
 
 
 const App = () => {
-
+    document.addEventListener('touchstart', {passive: true});
     
     const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
     

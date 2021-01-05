@@ -1,0 +1,15 @@
+{
+    "short_name" : "Mountaineer",
+    "name" : "Mountaineer Planning App",
+    "icons" : [
+        {
+            "src" : "/images/logo.png",
+            "type" : "image/png",
+            "sizes" : "515x515"
+        }
+    ],
+    "start_url" : "../build",
+    "display" : "standalone",
+    "theme_color" : "rgb(40,40,40)",
+    "background_color" : "#ffffff"
+}
