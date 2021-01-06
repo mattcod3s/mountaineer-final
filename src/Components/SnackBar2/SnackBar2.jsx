@@ -1,10 +1,9 @@
-
 import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import useStyles from './snackBarStyles';
+import useStyles from './snackBar2Styles';
 
-const CustomizedSnackbar = ({ open, setOpen }) => {
+const ConqSnackbar = ({ open, setOpen }) => {
     
     const classes = useStyles();
 
@@ -23,11 +22,11 @@ const CustomizedSnackbar = ({ open, setOpen }) => {
             onClose={handleClose}
             >
                 <MuiAlert onClose={handleClose} severity="success" elevation={6} variant="filled">
-                    Trip Successfully Created.
+                    Trip Successfully Conquered.
                 </MuiAlert>
             </Snackbar>
         </div>
     )
 }
 
-export default CustomizedSnackbar;
+export default ConqSnackbar;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { List as MUIList, ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide } from '@material-ui/core';
 import './planListStyles.scss';
 import { PlannedTripsContext } from "../../../../context/context";
@@ -11,12 +11,13 @@ import northAmerica from '../../../../Assets/formImg/north-america.svg';
 import southAmerica from '../../../../Assets/formImg/south-america.svg';
 import australia from '../../../../Assets/formImg/australia.svg';
 import europe from '../../../../Assets/formImg/europe.svg';
-
+import ConqSnackbar from '../../../SnackBar2/SnackBar2';
 
 
 
 const PlanList = () => {
     const { deleteTrip, plannedTrips, completeTrip } = useContext(PlannedTripsContext);
+    const [ open, setOpen ] = useState(false);
   
     const chooseImg = (trip) => {
         let currentImage;
@@ -52,6 +53,7 @@ const PlanList = () => {
                 <h2>PLANNED ADVENTURES</h2>
             </div>
             <div className="list__items">
+                <ConqSnackbar open={open} setOpen={setOpen}/>
                 <MUIList dense={false} style={{maxHeight: '40vh', overflow: 'auto',}}>
                 {plannedTrips.map((trip) => (
                     <Slide direction="down" in mountOnEnter unmountOnExit key={trip.id}>
@@ -63,7 +65,10 @@ const PlanList = () => {
                             </ListItemAvatar>
                             <ListItemText  primary={ trip.continent} secondary={`Start: ${trip.startDate}`}/>
                             <ListItemSecondaryAction style={{paddingRight: '100px'}}>
-                                <IconButton edge="end" aria-label="finished" onClick={() => completeTrip(trip)}>
+                                <IconButton edge="end" aria-label="finished" onClick={() => {
+                                    completeTrip(trip);
+                                    setOpen(true);
+                                    }}>
                                     <DoneAllIcon style={{color: 'green'}}/>
                                 </IconButton>
                             </ListItemSecondaryAction>
