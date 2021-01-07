@@ -20,6 +20,7 @@ const ConqSnackbar = ({ open, setOpen }) => {
             open={open}
             autoHideDuration={3000}
             onClose={handleClose}
+            style={{marginTop: '200px', position: 'fixed'}}
             >
                 <MuiAlert onClose={handleClose} severity="success" elevation={6} variant="filled">
                     Trip Successfully Conquered.
