@@ -41,7 +41,6 @@ const ConqListHeader = () => {
         <div className="conqListHeader">
             <Carousel onChange={(active) => {
                 setConqIndex(active);
-                setProgressPercent(5);
             }}
             animation={"slide"} indicators={true} navButtonsAlwaysInvisible indicatorContainerProps={{className: 'indCont'}} autoPlay={false}>
                 {listItems.map( (item, i) => 

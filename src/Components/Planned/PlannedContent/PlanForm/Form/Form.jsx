@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import constants from '../../../../../constants/constants';
 import formatDate from '../../../../../utils/formatDate';
 import CustomizedSnackbar from '../../../../SnackBar/SnackBar';
+import ErrSnackbar from '../../../../SnackBarErr/SnackBarErr';
 
 const Form = () => {
 
@@ -13,11 +14,13 @@ const Form = () => {
     const { addTrip } = useContext(PlannedTripsContext);
     const [dateError, setDateError] = useState(false);
     const [ open, setOpen ] = useState(false);
+    const [ error, setError ] = useState(false);
 
 
     const handleFormClick = (e) => {
         if (formData.continent === '' || formData.mountain === '' || formData.startDate === '' || formData.endDate === '') {
             setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img: ''});
+            setError(true);
         } else if (formatDate(formData.startDate, formData.endDate) == true) {
             setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img: ''});
         } else {
@@ -34,6 +37,7 @@ const Form = () => {
 
     return (
         <Grid container spacing={2}>
+            <ErrSnackbar error={error} setError={setError}/>
             <CustomizedSnackbar open={open} setOpen={setOpen}/>
             <Grid item xs={6} >
                 <FormControl fullWidth>
