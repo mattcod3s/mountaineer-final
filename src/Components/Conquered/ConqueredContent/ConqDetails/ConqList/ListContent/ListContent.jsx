@@ -6,44 +6,44 @@ import InfoIcon from '@material-ui/icons/Info';
 
 const ListContent = () => {
     const [index, setIndex] = useContext(ConqListContext);
-    let {initialLocalDataTwo} = useContext(PlannedTripsContext);
+    let {ConqueredTrips} = useContext(PlannedTripsContext);
     let [activeTrips, setActiveTrips] = useContext(ActiveTripsContext);
     const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
     useEffect(() => {
         
         switch (index) {
             case 1:
-                activeTrips = initialLocalDataTwo.filter((trip) => trip.continent === 'AUSTRALIA');
+                activeTrips = ConqueredTrips.filter((trip) => trip.continent === 'AUSTRALIA');
                 setActiveTrips(activeTrips);
                 
                 return activeTrips;
             case 2:
-                activeTrips = initialLocalDataTwo.filter((trip) => trip.continent === 'SOUTH_AMERICA');
+                activeTrips = ConqueredTrips.filter((trip) => trip.continent === 'SOUTH_AMERICA');
                 setActiveTrips(activeTrips);
                 
                 return activeTrips;
             case 3:
-                activeTrips = initialLocalDataTwo.filter((trip) => trip.continent === 'NORTH_AMERICA');
+                activeTrips = ConqueredTrips.filter((trip) => trip.continent === 'NORTH_AMERICA');
                 setActiveTrips(activeTrips);
                 
                 return activeTrips;
             case 4:
-                activeTrips = initialLocalDataTwo.filter((trip) => trip.continent === 'ASIA');
+                activeTrips = ConqueredTrips.filter((trip) => trip.continent === 'ASIA');
                 setActiveTrips(activeTrips);
                 
                 return activeTrips;
             case 5:
-                activeTrips = initialLocalDataTwo.filter((trip) => trip.continent === 'EUROPE');
+                activeTrips = ConqueredTrips.filter((trip) => trip.continent === 'EUROPE');
                 setActiveTrips(activeTrips);
                 
                 return activeTrips;
             case 6:
-                activeTrips = initialLocalDataTwo.filter((trip) => trip.continent === 'AFRICA');
+                activeTrips = ConqueredTrips.filter((trip) => trip.continent === 'AFRICA');
                 setActiveTrips(activeTrips);
                 
                 return activeTrips;
             default:
-                setActiveTrips(initialLocalDataTwo);
+                setActiveTrips(ConqueredTrips);
                 
                 return activeTrips;
                 
