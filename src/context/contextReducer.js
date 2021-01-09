@@ -14,6 +14,7 @@ const contextReducer = (state, action) => {
         case 'COMPLETE_TRIP' :
             plannedTrips = state.filter((t) => t.id !== action.payload.id );
             localStorage.setItem('initialPlannedTrips', JSON.stringify(plannedTrips));
+            
             return plannedTrips;
         default : 
             return state;

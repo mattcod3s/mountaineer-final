@@ -1,14 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './conqListStyles.scss';
-import ConqListHeader from './ConqListHeader/ConqListHeader';
-import ConqListItems from './ConqListItems/ConqListItems';
+import ListHeader from './ListHeader/ListHeader';
+import ListContent from './ListContent/ListContent';
 
 const ConqList = () => {
-
     return (
         <div className="conqList">
-            <ConqListHeader />
-            <ConqListItems />
+            <ListHeader />
+            <ListContent />
         </div>
     )
 }

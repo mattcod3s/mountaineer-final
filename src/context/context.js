@@ -3,9 +3,6 @@ import contextReducer from './contextReducer';
 import globe from '../Assets/formImg/globe.svg';
 
 
-const initialLocalDataOne = JSON.parse(localStorage.getItem('initialPlannedTrips')) || [];
-const initialLocalDataTwo = JSON.parse(localStorage.getItem('ConqueredTrips')) || [];
-
 const initialState = {
     id : '',
     continent : '',
@@ -128,6 +125,9 @@ const ConqueredTrips = [
     }, 
 ];
 
+const initialLocalDataOne = JSON.parse(localStorage.getItem('initialPlannedTrips')) || [];
+const initialLocalDataTwo = JSON.parse(localStorage.getItem('ConqueredTrips')) || [];
+
 export const ConqStatusContext = createContext();
 
 export const ConqStatusProvider = (props) => {
@@ -172,7 +172,6 @@ export const PlannedTripsContext = createContext(initialLocalDataOne);
 
 export const PlannedTripsProvider = (props) => {
     const [plannedTrips, dispatch] = useReducer(contextReducer, initialLocalDataOne);
-    const [completedTrip] = useReducer(contextReducer, initialLocalDataOne);
 
     const deleteTrip = (id) => {
         dispatch({ type : 'DELETE_TRIP', payload : id});
@@ -185,6 +184,8 @@ export const PlannedTripsProvider = (props) => {
     const completeTrip = (trip) => {
         dispatch({type : 'COMPLETE_TRIP', payload : trip});
         ConqueredTrips.push(trip);
+        localStorage.setItem('ConqueredTrips', JSON.stringify(ConqueredTrips));
+        
     }
 
     return (
@@ -203,10 +204,10 @@ export const PlannedTripsProvider = (props) => {
 export const ConqListContext = createContext();
 
 export const ConqListProvider = (props) => {
-    const [conqIndex, setConqIndex] = useState(0);
+    const [index, setIndex] = useState(0);
 
     return (
-        <ConqListContext.Provider value={ [conqIndex, setConqIndex] }>
+        <ConqListContext.Provider value={ [index, setIndex] }>
             {props.children}
         </ConqListContext.Provider>
     );
@@ -227,8 +228,8 @@ export const PercentLoaderProvider = (props) => {
 export const ActiveTripsContext = createContext();
 
 export const ActiveTripsProvider = (props) => {
-    const [activeTrips, setActiveTrips] = useState(initialLocalDataTwo);
-
+    const [activeTrips, setActiveTrips] = useState(ConqueredTrips);
+    
     return (
         <ActiveTripsContext.Provider value={ [activeTrips, setActiveTrips] }>
             {props.children}
