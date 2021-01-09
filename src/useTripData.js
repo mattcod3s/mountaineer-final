@@ -2,12 +2,12 @@ import { useContext, useEffect } from 'react';
 import { PlannedTripsContext } from './context/context';
 
 const useTripData = () => {
-    const { ConqueredTrips } = useContext(PlannedTripsContext);
+    const { initialLocalDataTwo } = useContext(PlannedTripsContext);
     const contCounter = [0,0,0,0,0,0];
-    let total = ConqueredTrips.length;
+    let total = initialLocalDataTwo.length;
     const sumfunc = () => {
         for(let i = 0; i<=6; i++) {
-            let arr = ConqueredTrips.filter((el) => el.continent === continents[i]);
+            let arr = initialLocalDataTwo.filter((el) => el.continent === continents[i]);
             contCounter[i] = arr.length;
         }
         return contCounter;

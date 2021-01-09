@@ -194,7 +194,7 @@ export const PlannedTripsProvider = (props) => {
             addTrip, 
             plannedTrips,
             completeTrip,
-            ConqueredTrips
+            initialLocalDataTwo
         }}>
             {props.children}
         </PlannedTripsContext.Provider>
