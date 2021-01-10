@@ -1,8 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './listContentStyles.scss';
 import {ConqStatusContext, ConqListContext, PlannedTripsContext, ActiveTripsContext} from '../../../../../../context/context';
-import { List as MUIList, ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide } from '@material-ui/core';
+import { List as MUIList,Card,CardActions,CardContent, Button,Typography , ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
+import CloseIcon from '@material-ui/icons/Close';
 import globe from '../../../../../../Assets/formImg/globe.svg';
 import asia from '../../../../../../Assets/formImg/asia.svg';
 import africa from '../../../../../../Assets/formImg/africa.svg';
@@ -16,8 +17,8 @@ const ListContent = () => {
     let {ConqueredTrips, initialLocalDataTwo} = useContext(PlannedTripsContext);
     let [activeTrips, setActiveTrips] = useContext(ActiveTripsContext);
     const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
+    const [cardInfo, setCardInfo] = useState(false);
     
-
     const chooseImg = (trip) => {
         let currentImage;
         switch (trip.continent) {
@@ -81,12 +82,44 @@ const ListContent = () => {
         
     }, [index, conqStatus]);
 
+    const handleInfoClick = () => {
+        setCardInfo(true);
+        console.log(cardInfo);
+    }
+
+    const handleCloseClick = () => {
+        setCardInfo(false);
+        console.log(cardInfo);
+    }
+
     return (
         <div className='listContent'>
+            <Card className={cardInfo ? 'cardInfo__active' : 'cardInfo'} >
+                <CardContent>
+                    <CloseIcon onClick={handleCloseClick} style={{cursor: 'pointer'}}/>
+                    <Typography color="textSecondary" gutterBottom>
+                        Word of the Day
+                    </Typography>
+                    <Typography variant="h5" component="h2">
+                    benevolent
+                    </Typography>
+                    <Typography  color="textSecondary">
+                    adjective
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                    well meaning and kindly.
+                    <br />
+                    {'"a benevolent smile"'}
+                    </Typography>
+                    <CardActions>
+                        <Button size="small">Learn More</Button>
+                    </CardActions>
+                </CardContent>
+                
+            </Card>
             <MUIList dense={false} style={{maxHeight: '38vh', overflow: 'auto',}}>
                 {activeTrips.map((trip) => (
                     <Slide direction="down" in mountOnEnter unmountOnExit key={trip.id}>
-                        
                         <ListItem>
                             <ListItemAvatar>
                                 <Avatar src={chooseImg(trip)}>
@@ -95,12 +128,13 @@ const ListContent = () => {
                             </ListItemAvatar>
                             <ListItemText style={{color: 'rgb(220,220,220)'}} primary={ trip.mountain } secondary={`Conquered : ${trip.endDate}`}/>
                             <ListItemSecondaryAction style={{ paddingRight: '30px'}}>
-                                <IconButton edge="end" aria-label="info" style={{color: 'white'}}>
+                                <IconButton edge="end" aria-label="info" style={{color: 'white'}} onClick={handleInfoClick}>
                                     <InfoIcon />
                                 </IconButton>
                             </ListItemSecondaryAction>
                         </ListItem>
                     </Slide>
+                    
                 ))}
             </MUIList>
         </div>

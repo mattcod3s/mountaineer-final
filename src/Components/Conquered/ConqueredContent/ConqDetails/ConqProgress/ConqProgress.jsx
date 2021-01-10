@@ -9,9 +9,10 @@ const ConqProgress = () => {
     const [progressPercent, setProgressPercent] = useContext(PercentLoaderContext);
     const [activeTrips, setActiveTrips] = useContext(ActiveTripsContext);
     
-    let finLength = activeTrips.length > 10 ? 50 : 10
+    let finLength = activeTrips.length > 10 ? 47 : 10
     useEffect(() => {
-        setProgressPercent( ((activeTrips.length) / finLength) * 100 );
+        let temp = (((activeTrips.length) / finLength) * 100 );
+        setProgressPercent( Math.round(temp * 10) / 10 );
     }, [activeTrips, conqStatus])
     
 

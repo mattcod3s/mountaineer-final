@@ -50,7 +50,7 @@ const constants = [
                 elevation: '6,746 m',
                 NormalRoute : '--'
             },
-
+            
             {
                 name : 'Cilaltépetl',
                 country : 'Mexico',
@@ -84,7 +84,6 @@ const constants = [
             }
             
         ],
-        Image : ''
     },
 
 
@@ -339,18 +338,18 @@ const constants = [
             , 
 
             {
-                name : 'Llullaillaco',
-                country : 'Chile',
-                mountainRange : 'Atacama',
-                elevation: '6,739 m',
+                name : 'Kibo (Uhuru Pk)',
+                country : 'Kenya',
+                mountainRange : '--',
+                elevation: '5,895 m',
                 NormalRoute : '--'
             },
 
             {
-                name : 'Mount Wood',
-                country : 'US',
+                name : 'Amba Farit',
+                country : 'Ethiopia',
                 mountainRange : 'Wrangell Mountains',
-                elevation: '4,949 m',
+                elevation: '4,270 m',
                 NormalRoute : '--'
             }
         ]
@@ -418,7 +417,7 @@ const constants = [
                 NormalRoute : ''
             },
 
-            {
+            /*{
                 name : 'Mount Bear',
                 country : 'US',
                 mountainRange : 'Saint Elias',
@@ -440,7 +439,7 @@ const constants = [
                 mountainRange : 'Saint Elias',
                 elevation: '4,907 m',
                 NormalRoute : '--'
-            },
+            },*/
         ]
     }, 
 

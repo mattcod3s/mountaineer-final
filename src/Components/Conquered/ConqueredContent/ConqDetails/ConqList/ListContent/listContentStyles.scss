@@ -1,3 +1,4 @@
+
 .listContent {
     width: 56vw;
     height: 80%;
@@ -5,6 +6,28 @@
     border-radius: 0;
     order: 2;
 
+    .cardInfo {
+        width: 250px;
+        height: 250px;
+        display: flex;
+        background: white;
+        position: absolute;
+        left: 56vw;
+        z-index: 12;
+        display: none;
+        transition-duration: 0.25s;
+    }
+    .cardInfo__active {
+        width: 350px;
+        height: 350px;
+        display: flex;
+        background: white;
+        position: absolute;
+        left: 56vw;
+        z-index: 12;
+        transform: scale(1);
+        transition-duration: 0.25s;
+    }
 }
 
 @media screen and (max-width: 1024px) {
