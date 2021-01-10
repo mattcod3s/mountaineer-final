@@ -4,4 +4,16 @@
     background: transparent;
     border-radius: 0;
     order: 2;
+
+}
+
+@media screen and (max-width: 1024px) {
+    .listContent {
+        width: 88vw;
+        height: 90%;
+        background: transparent;
+        border-radius: 0;
+        order: 2;
+    }
+    
 }

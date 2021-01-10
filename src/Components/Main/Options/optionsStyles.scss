@@ -213,3 +213,16 @@
         }
     }
 
+    @media screen and (min-width: 1500px) {
+        .options__menu__scrolled {
+            margin-bottom: -50px !important;
+        }
+    }
+
+    @media screen and (min-width: 3000px) {
+        .options__menu__scrolled {
+            margin-bottom: -250px !important;
+        }
+    }
+
+

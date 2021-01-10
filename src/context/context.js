@@ -184,6 +184,7 @@ export const PlannedTripsProvider = (props) => {
     const completeTrip = (trip) => {
         dispatch({type : 'COMPLETE_TRIP', payload : trip});
         ConqueredTrips.push(trip);
+        localStorage.setItem('ConqueredTrips', JSON.stringify(ConqueredTrips));
     }
 
     return (
@@ -192,7 +193,8 @@ export const PlannedTripsProvider = (props) => {
             addTrip, 
             plannedTrips,
             completeTrip,
-            ConqueredTrips
+            ConqueredTrips, 
+            initialLocalDataTwo
         }}>
             {props.children}
         </PlannedTripsContext.Provider>

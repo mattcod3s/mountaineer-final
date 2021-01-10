@@ -49,3 +49,25 @@
         }
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .listHeader {
+        width: 90vw;
+        height: 20%;
+        background: transparent;
+        order: 1; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        .header__cont {
+            width: 88vw;
+            height: 75%;
+            border-radius: 10px;
+            background: rgb(236, 231, 231);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+}

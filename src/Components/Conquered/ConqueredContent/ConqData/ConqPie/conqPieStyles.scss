@@ -7,14 +7,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    .cardPie__data {
+        width: 32vw;
+        height: 80%;
+        border-radius: 12px;
+        background: transparent; 
+        box-shadow: 0 0 0 0;
+    }
+    
 }
 
-.cardPie__data {
-    width: 32vw;
-    height: 100%;
-    background: transparent; 
-    box-shadow: 0 0 0 0;
-}
 
 @media screen and (max-width: 1024px) {
     .pie__data {
