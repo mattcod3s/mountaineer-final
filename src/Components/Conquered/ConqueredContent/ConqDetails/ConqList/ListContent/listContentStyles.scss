@@ -23,11 +23,26 @@
         display: flex;
         background: white;
         position: absolute;
-        left: 56vw;
+        left: 58vw;
         z-index: 12;
         transform: scale(1);
         transition-duration: 0.25s;
+
+        
     }
+    .arrow-left {
+
+    }
+    .arrow-left__active {
+        width: 0; 
+        height: 0; 
+        border-top: 30px solid transparent;
+        border-bottom: 30px solid transparent; 
+        border-right:30px solid white; 
+        position: absolute;
+        top: 20vh;
+        left: 57vw;
+      }
 }
 
 @media screen and (max-width: 1024px) {

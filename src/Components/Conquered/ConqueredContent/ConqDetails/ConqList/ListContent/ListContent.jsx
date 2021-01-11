@@ -18,6 +18,14 @@ const ListContent = () => {
     let [activeTrips, setActiveTrips] = useContext(ActiveTripsContext);
     const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
     const [cardInfo, setCardInfo] = useState(false);
+
+    const [cardData, setCardData] = useState({
+        continent : '',
+        mountain: '',
+        startDate: '',
+        endDate: ''
+    });
+
     
     const chooseImg = (trip) => {
         let currentImage;
@@ -82,34 +90,43 @@ const ListContent = () => {
         
     }, [index, conqStatus]);
 
-    const handleInfoClick = () => {
+    const handleInfoClick = (trip) => {
+        setCardData({
+            continent: trip.continent,
+            mountain: trip.mountain,
+            startDate: trip.startDate,
+            endDate: trip.endDate
+        });
         setCardInfo(true);
-        console.log(cardInfo);
     }
 
     const handleCloseClick = () => {
         setCardInfo(false);
-        console.log(cardInfo);
     }
 
+    
     return (
         <div className='listContent'>
+            <div className={cardInfo ? 'arrow-left__active' : 'arrow-left'}>
+                    
+            </div>
             <Card className={cardInfo ? 'cardInfo__active' : 'cardInfo'} >
+                
                 <CardContent>
                     <CloseIcon onClick={handleCloseClick} style={{cursor: 'pointer'}}/>
                     <Typography color="textSecondary" gutterBottom>
-                        Word of the Day
+                       Conquered Peak
                     </Typography>
                     <Typography variant="h5" component="h2">
-                    benevolent
+                        {cardData.mountain}
                     </Typography>
                     <Typography  color="textSecondary">
-                    adjective
+                        {cardData.continent}
                     </Typography>
                     <Typography variant="body2" component="p">
-                    well meaning and kindly.
+                        Started: {cardData.startDate}
                     <br />
-                    {'"a benevolent smile"'}
+                        Conquered: {cardData.endDate}
                     </Typography>
                     <CardActions>
                         <Button size="small">Learn More</Button>
