@@ -18,21 +18,21 @@
         transition-duration: 0.25s;
     }
     .cardInfo__active {
-        width: 350px;
+        width: 450px;
         height: 350px;
         display: flex;
-        background: white;
+        background: rgb(224, 224, 224);
+        top: 15vh;
         position: absolute;
         left: 58vw;
         z-index: 12;
         transform: scale(1);
         transition-duration: 0.25s;
-
+        box-shadow:  0 0 0 0;
+        border: 2px solid white;
         
     }
-    .arrow-left {
-
-    }
+    .arrow-left {}
     .arrow-left__active {
         width: 0; 
         height: 0; 

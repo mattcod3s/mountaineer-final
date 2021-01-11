@@ -107,9 +107,31 @@ const ListContent = () => {
     
     return (
         <div className='listContent'>
-            <div className={cardInfo ? 'arrow-left__active' : 'arrow-left'}>
+            
+            <MUIList dense={false} style={{maxHeight: '38vh', overflow: 'auto',}}>
+                {activeTrips.map((trip) => (
+                    <Slide direction="down" in mountOnEnter unmountOnExit key={trip.id}>
+                        <ListItem>
+                            <ListItemAvatar>
+                                <Avatar src={chooseImg(trip)}>
+                                    
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText style={{color: 'rgb(220,220,220)'}} primary={ trip.mountain } secondary={`Conquered : ${trip.endDate}`}/>
+                            <ListItemSecondaryAction style={{ paddingRight: '30px'}}>
+                                <IconButton key={trip.id} edge="end" aria-label="info" style={{color: 'white'}} onClick={() => {
+                                    handleInfoClick(trip)
+                                }}>
+                                    <InfoIcon />
+                                </IconButton>
+                            </ListItemSecondaryAction>
+                        </ListItem>
+                    </Slide>
                     
-            </div>
+                ))}
+            </MUIList>
+
+            <div className={cardInfo ? 'arrow-left__active' : 'arrow-left'}></div>
             <Card className={cardInfo ? 'cardInfo__active' : 'cardInfo'} >
                 
                 <CardContent>
@@ -134,26 +156,7 @@ const ListContent = () => {
                 </CardContent>
                 
             </Card>
-            <MUIList dense={false} style={{maxHeight: '38vh', overflow: 'auto',}}>
-                {activeTrips.map((trip) => (
-                    <Slide direction="down" in mountOnEnter unmountOnExit key={trip.id}>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar src={chooseImg(trip)}>
-                                    
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText style={{color: 'rgb(220,220,220)'}} primary={ trip.mountain } secondary={`Conquered : ${trip.endDate}`}/>
-                            <ListItemSecondaryAction style={{ paddingRight: '30px'}}>
-                                <IconButton edge="end" aria-label="info" style={{color: 'white'}} onClick={handleInfoClick}>
-                                    <InfoIcon />
-                                </IconButton>
-                            </ListItemSecondaryAction>
-                        </ListItem>
-                    </Slide>
-                    
-                ))}
-            </MUIList>
+
         </div>
     )
 }

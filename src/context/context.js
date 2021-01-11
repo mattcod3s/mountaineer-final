@@ -49,7 +49,7 @@ const ConqueredTrips = [
     {
         id : 31,
         continent : 'ASIA',
-        mountain : 'MOUNT EVEREST',
+        mountain : 'Mount Everest',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
     },

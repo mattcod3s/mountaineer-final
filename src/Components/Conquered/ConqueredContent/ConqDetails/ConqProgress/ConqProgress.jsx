@@ -8,10 +8,16 @@ const ConqProgress = () => {
     const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
     const [progressPercent, setProgressPercent] = useContext(PercentLoaderContext);
     const [activeTrips, setActiveTrips] = useContext(ActiveTripsContext);
+    let tempTrips = [];
+    let uniqueTrips = [];
     
-    let finLength = activeTrips.length > 10 ? 47 : 10
     useEffect(() => {
-        let temp = (((activeTrips.length) / finLength) * 100 );
+        activeTrips.forEach((trip) => {
+            tempTrips.push(trip.mountain);
+        });
+        uniqueTrips = [...new Set(tempTrips)];
+        let finLength = uniqueTrips.length > 10 ? 47 : 10
+        let temp = (((uniqueTrips.length) / finLength) * 100 );
         setProgressPercent( Math.round(temp * 10) / 10 );
     }, [activeTrips, conqStatus])
     
