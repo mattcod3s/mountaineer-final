@@ -4,6 +4,7 @@ import {ConqStatusContext, ConqListContext, PlannedTripsContext, ActiveTripsCont
 import { List as MUIList,Card,CardActions,CardContent, Button,Typography , ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import CloseIcon from '@material-ui/icons/Close';
+import getDataCall from '../../../../../../axios';
 import globe from '../../../../../../Assets/formImg/globe.svg';
 import asia from '../../../../../../Assets/formImg/asia.svg';
 import africa from '../../../../../../Assets/formImg/africa.svg';
@@ -95,8 +96,9 @@ const ListContent = () => {
             continent: trip.continent,
             mountain: trip.mountain,
             startDate: trip.startDate,
-            endDate: trip.endDate
+            endDate: trip.endDate,
         });
+        getDataCall(37.39, -122.08);
         setCardInfo(true);
     }
 
@@ -149,6 +151,11 @@ const ListContent = () => {
                         Started: {cardData.startDate}
                     <br />
                         Conquered: {cardData.endDate}
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                        Weather: 
+                    <br />
+                        Precipitation: 
                     </Typography>
                     <CardActions>
                         <Button size="small">Learn More</Button>
