@@ -98,7 +98,7 @@ const ListContent = () => {
             startDate: trip.startDate,
             endDate: trip.endDate,
         });
-        getDataCall(37.39, -122.08);
+        getDataCall(trip.lat, trip.long);
         setCardInfo(true);
     }
 

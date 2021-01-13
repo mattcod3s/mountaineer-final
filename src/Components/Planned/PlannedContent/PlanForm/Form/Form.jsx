@@ -16,6 +16,16 @@ const Form = () => {
     const [ open, setOpen ] = useState(false);
     const [ error, setError ] = useState(false);
 
+    const handleSetCoord = (e) => {
+        let chosenMount = constants.filter((cont) => cont.mountains.name === formData.mountain);
+        constants.map((cont) => {
+            
+                if (cont.mountains.name === e.target.value) {
+                    setFormData({...formData, lat: cont.mountains.lat, long: cont.mountains.long});
+                }
+            
+        })
+    }
 
     const handleFormClick = (e) => {
         if (formData.continent === '' || formData.mountain === '' || formData.startDate === '' || formData.endDate === '') {
@@ -25,14 +35,16 @@ const Form = () => {
             setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img: ''});
         } else {
             e.preventDefault();
-            const pTrip = {...formData, id : uuidv4(), continent : formData.continent, mountain : formData.mountain, startDate : formData.startDate, endDate: formData.endDate, img: ''}
+            const pTrip = {...formData, id : uuidv4(), continent : formData.continent, mountain : formData.mountain, startDate : formData.startDate, endDate: formData.endDate, img: '', lat: formData.lat, long: formData.long}
             addTrip(pTrip);
             setOpen(true);
         }
-        setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img : ''});
+        setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img : '', lat: 0, long: 0});
         setDateError(formatDate(formData.startDate, formData.endDate));
         
     }
+
+    
 
 
     return (
@@ -58,7 +70,10 @@ const Form = () => {
                     <InputLabel>MOUNTAIN</InputLabel>
                     <NativeSelect
                         value={formData.mountain}
-                        onChange={(e) => setFormData({ ...formData, mountain : e.target.value })}
+                        onChange={(e) => {
+                            setFormData({ ...formData, mountain : e.target.value });
+                            handleSetCoord(e);
+                        }}
                     >
                         <option key={uuidv4()} value={null}></option>
                         

@@ -9,7 +9,9 @@ const initialState = {
     mountain : '',
     startDate : '01/01/2021',
     endDate : '01/01/2021',
-    img: globe
+    img: globe,
+    lat: 0,
+    long: 0
 }
 
 
@@ -52,6 +54,8 @@ const ConqueredTrips = [
         mountain : 'Mount Everest',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat: 27.98,
+        long: 86.92,
     },
     {
         id : 32,
@@ -59,6 +63,8 @@ const ConqueredTrips = [
         mountain : 'Mount Logan',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat:60.6,
+        long: -140.4,
     },
     {
         id : 33,
@@ -66,6 +72,8 @@ const ConqueredTrips = [
         mountain : 'Mount Saint Elias',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat:60.3,
+        long: -141,
     },
     {
         id : 34,
@@ -73,6 +81,8 @@ const ConqueredTrips = [
         mountain : 'Mont Blanc',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat:45.8,
+        long: 6.9,
     },
     {
         id : 35,
@@ -80,6 +90,8 @@ const ConqueredTrips = [
         mountain : 'Matterhorn',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat:46,
+        long: 7.6,
     },
     {
         id : 36,
@@ -87,6 +99,8 @@ const ConqueredTrips = [
         mountain : 'K2',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat:35.88,
+        long: 76.51,
     },
     {
         id : 9343443,
@@ -94,6 +108,8 @@ const ConqueredTrips = [
         mountain : 'Tres Cruces Sur',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat:-27.1,
+        long: -68.7,
     }, 
     {
         id : 98683,
@@ -101,6 +117,8 @@ const ConqueredTrips = [
         mountain : 'Cilaltépetl',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat:-17.5,
+        long: -101.5,
     }, 
     {
         id : 90272,
@@ -108,6 +126,8 @@ const ConqueredTrips = [
         mountain : 'Huascaran Sur',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat:-9.1,
+        long: -77.5,
     }, 
     {
         id : 19,
@@ -115,6 +135,8 @@ const ConqueredTrips = [
         mountain : 'Mercedario',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat:-32.01,
+        long: -70,
     }, 
     {
         id : 1900,
@@ -122,6 +144,8 @@ const ConqueredTrips = [
         mountain : 'Kilimanjaro',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
+        lat:-3.06,
+        long: 37.4,
     }, 
 ];
 

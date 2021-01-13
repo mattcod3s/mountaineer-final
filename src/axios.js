@@ -1,9 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-let lat = 34.052235;
-    let long = -118.2436834;
-
  const getDataCall = (lat, long) => {
     /*const apiKey = `89705b6239360f7f8d9608601a0505d5`;
     const url = `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;*/
