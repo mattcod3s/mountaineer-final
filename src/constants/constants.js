@@ -628,7 +628,7 @@ const constants = [
         continent : 'TOP_WORLDWIDE',
         mountains : [
             {
-                name : 'Mount Everest',
+                name : 'Mt Everest',
                 country : 'Nepal',
                 mountainRange : 'Himalayas',
                 elevation: '8,849 m',

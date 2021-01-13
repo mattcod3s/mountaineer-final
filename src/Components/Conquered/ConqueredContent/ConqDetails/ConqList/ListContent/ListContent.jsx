@@ -24,7 +24,9 @@ const ListContent = () => {
         continent : '',
         mountain: '',
         startDate: '',
-        endDate: ''
+        endDate: '',
+        lat: 0,
+        long: 0
     });
 
     
@@ -97,6 +99,8 @@ const ListContent = () => {
             mountain: trip.mountain,
             startDate: trip.startDate,
             endDate: trip.endDate,
+            lat: trip.lat,
+            long:trip.long
         });
         getDataCall(trip.lat, trip.long);
         setCardInfo(true);
@@ -155,7 +159,7 @@ const ListContent = () => {
                     <Typography variant="body2" component="p">
                         Weather: 
                     <br />
-                        Precipitation: 
+                        Precipitation: {cardData.lat} {cardData.long}
                     </Typography>
                     <CardActions>
                         <Button size="small">Learn More</Button>

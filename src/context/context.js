@@ -10,8 +10,8 @@ const initialState = {
     startDate : '01/01/2021',
     endDate : '01/01/2021',
     img: globe,
-    lat: 0,
-    long: 0
+    lat: '',
+    long: ''
 }
 
 

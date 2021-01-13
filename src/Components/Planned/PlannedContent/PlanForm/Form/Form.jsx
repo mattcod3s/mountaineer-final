@@ -15,38 +15,41 @@ const Form = () => {
     const [dateError, setDateError] = useState(false);
     const [ open, setOpen ] = useState(false);
     const [ error, setError ] = useState(false);
+    const [ coord, setCoord ] = useState({
+        lat: 0,
+        long: 0
+    });
 
     const handleSetCoord = (e) => {
-        let chosenMount = constants.filter((cont) => cont.mountains.name === formData.mountain);
         constants.map((cont) => {
-            
-                if (cont.mountains.name === e.target.value) {
-                    setFormData({...formData, lat: cont.mountains.lat, long: cont.mountains.long});
-                }
-            
+            cont.mountains.map((mount) => {
+                if (mount.name === e.target.value) {
+                    setCoord({lat: mount.lat, long: mount.long});
+                } 
+            })
         })
     }
 
+
     const handleFormClick = (e) => {
         if (formData.continent === '' || formData.mountain === '' || formData.startDate === '' || formData.endDate === '') {
-            setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img: ''});
+            setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img: '', lat: '', long: ''});
             setError(true);
         } else if (formatDate(formData.startDate, formData.endDate) == true) {
-            setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img: ''});
+            setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img: '', lat: '', long: ''});
         } else {
             e.preventDefault();
-            const pTrip = {...formData, id : uuidv4(), continent : formData.continent, mountain : formData.mountain, startDate : formData.startDate, endDate: formData.endDate, img: '', lat: formData.lat, long: formData.long}
+            const pTrip = {...formData, id : uuidv4(), continent : formData.continent, mountain : formData.mountain, startDate : formData.startDate, endDate: formData.endDate, img: '', lat: coord.lat, long: coord.long}
             addTrip(pTrip);
             setOpen(true);
         }
-        setFormData({id : '', continent: '', mountain: '', startDate: '', endDate: '', img : '', lat: 0, long: 0});
+        setFormData({...formData, id : '', continent: '', mountain: '', startDate: '', endDate: '', img : '', lat: '', long: ''});
         setDateError(formatDate(formData.startDate, formData.endDate));
         
     }
 
     
-
-
+    
     return (
         <Grid container spacing={2}>
             <ErrSnackbar error={error} setError={setError}/>
@@ -71,8 +74,9 @@ const Form = () => {
                     <NativeSelect
                         value={formData.mountain}
                         onChange={(e) => {
-                            setFormData({ ...formData, mountain : e.target.value });
                             handleSetCoord(e);
+                            setFormData({ ...formData, mountain : e.target.value });
+                            
                         }}
                     >
                         <option key={uuidv4()} value={null}></option>
