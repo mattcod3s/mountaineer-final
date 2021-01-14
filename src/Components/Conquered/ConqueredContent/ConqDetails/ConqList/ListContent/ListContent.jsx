@@ -12,6 +12,7 @@ import northAmerica from '../../../../../../Assets/formImg/north-america.svg';
 import southAmerica from '../../../../../../Assets/formImg/south-america.svg';
 import australia from '../../../../../../Assets/formImg/australia.svg';
 import europe from '../../../../../../Assets/formImg/europe.svg';
+import axios from 'axios';
 
 const ListContent = () => {
     const [index, setIndex] = useContext(ConqListContext);
@@ -19,6 +20,7 @@ const ListContent = () => {
     let [activeTrips, setActiveTrips] = useContext(ActiveTripsContext);
     const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
     const [cardInfo, setCardInfo] = useState(false);
+    
 
     const [cardData, setCardData] = useState({
         continent : '',
@@ -26,9 +28,16 @@ const ListContent = () => {
         startDate: '',
         endDate: '',
         lat: 0,
-        long: 0
+        long: 0,
+        timezone: '',
+        /*
+        temp: 0,
+        humidity: '',
+        icon: '', 
+        precipProbability: '',
+        precipIntensity: '',
+        windSpeed: ''*/
     });
-
     
     const chooseImg = (trip) => {
         let currentImage;
@@ -94,16 +103,37 @@ const ListContent = () => {
     }, [index, conqStatus]);
 
     const handleInfoClick = (trip) => {
-        setCardData({
-            continent: trip.continent,
-            mountain: trip.mountain,
-            startDate: trip.startDate,
-            endDate: trip.endDate,
-            lat: trip.lat,
-            long:trip.long
-        });
         getDataCall(trip.lat, trip.long);
+        
         setCardInfo(true);
+        async function fetchData() {
+            const proxy = "https://cors-anywhere.herokuapp.com/";
+            const fetchURL = `${proxy}https://api.darksky.net/forecast/e4d88e9928e57d49d1dd1c799043d598/${trip.lat},${trip.long}`;
+            const request = await axios.get(fetchURL);
+
+            setCardData({
+                continent: trip.continent,
+                mountain: trip.mountain,
+                startDate: trip.startDate,
+                endDate: trip.endDate,
+                lat: trip.lat,
+                long:trip.long,
+                timezone : request.data.timezone
+                /*
+                timezone: data.currently.timezone,
+                temp: temperature,
+                humidity: humidity,
+                icon: icon, 
+                precipProbability: precipProbability,
+                precipIntensity: precipIntensity,
+                windSpeed: windSpeed
+                */
+            });
+            
+            console.log(request.data);
+            return request;
+        }
+        fetchData();
     }
 
     const handleCloseClick = () => {
@@ -157,7 +187,7 @@ const ListContent = () => {
                         Conquered: {cardData.endDate}
                     </Typography>
                     <Typography variant="body2" component="p">
-                        Weather: 
+                        Temperature : {cardData.timezone}
                     <br />
                         Precipitation: {cardData.lat} {cardData.long}
                     </Typography>

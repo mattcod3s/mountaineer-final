@@ -12,7 +12,8 @@ const initialState = {
     img: globe,
     lat: '',
     long: ''
-}
+};
+
 
 
 const initialPlannedTrips = [
@@ -260,3 +261,4 @@ export const ActiveTripsProvider = (props) => {
         </ActiveTripsContext.Provider>
     );
 }
+
