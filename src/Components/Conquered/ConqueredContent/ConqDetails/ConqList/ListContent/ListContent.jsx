@@ -30,13 +30,12 @@ const ListContent = () => {
         lat: 0,
         long: 0,
         timezone: '',
-        /*
         temp: 0,
         humidity: '',
         icon: '', 
         precipProbability: '',
         precipIntensity: '',
-        windSpeed: ''*/
+        windSpeed: ''
     });
     
     const chooseImg = (trip) => {
@@ -118,19 +117,16 @@ const ListContent = () => {
                 endDate: trip.endDate,
                 lat: trip.lat,
                 long:trip.long,
-                timezone : request.data.timezone
-                /*
-                timezone: data.currently.timezone,
-                temp: temperature,
-                humidity: humidity,
-                icon: icon, 
-                precipProbability: precipProbability,
-                precipIntensity: precipIntensity,
-                windSpeed: windSpeed
-                */
+                timezone : request.data.timezone,
+                temp: request.data.currently.temperature,
+                humidity: request.data.currently.humidity,
+                icon: request.data.currently.icon, 
+                precipProbability: request.data.currently.precipProbability,
+                precipIntensity: request.data.currently.precipIntensity,
+                windSpeed: request.data.currently.windSpeed
             });
             
-            console.log(request.data);
+            console.log(cardData);
             return request;
         }
         fetchData();
