@@ -169,13 +169,13 @@ const ListContent = () => {
                 <CardContent>
                     <CloseIcon onClick={handleCloseClick} style={{cursor: 'pointer'}}/>
                     <Typography color="textSecondary" gutterBottom>
-                       Conquered Peak
+                       Conquered Peak {cardData.icon}
                     </Typography>
                     <Typography variant="h5" component="h2">
                         {cardData.mountain}
                     </Typography>
                     <Typography  color="textSecondary">
-                        {cardData.continent}
+                        {cardData.timezone}
                     </Typography>
                     <Typography variant="body2" component="p">
                         Started: {cardData.startDate}
@@ -183,9 +183,17 @@ const ListContent = () => {
                         Conquered: {cardData.endDate}
                     </Typography>
                     <Typography variant="body2" component="p">
-                        Temperature : {cardData.timezone}
+                        Temperature : {cardData.temp}
                     <br />
-                        Precipitation: {cardData.lat} {cardData.long}
+                        Humidity: {cardData.humidity}
+                    <br />
+                        Chance of Precipitation: {cardData.precipProbability}
+                    <br />
+                        Precipitation Intensity: {cardData.precipIntensity}
+                     <br />
+                        Precipitation Intensity: {cardData.precipIntensity}
+                    <br />
+                        Wind Speed: {cardData.windSpeed}
                     </Typography>
                     <CardActions>
                         <Button size="small">Learn More</Button>

@@ -11,15 +11,7 @@ const getDataCall = (lat, long) => {
         axios.get(`${url}`)
         .then((data) => {
             
-            const timezone   = data.data.timezone;
-            const temperature = data.data.currently.temperature;
-            const humidity  = data.data.currently.humidity;
-            const icon  = data.data.currently.icon;
-            const precipProbability = data.data.currently.precipProbability;
-            const precipIntensity  = data.data.currently.precipIntensity;
-            const windSpeed = data.data.currently.windSpeed;
-            console.log(timezone, temperature);
-
+            console.log(data.data)
             
         })
         .catch((error) => {
