@@ -22,7 +22,7 @@ const ListContent = () => {
     const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
     const [cardInfo, setCardInfo] = useState(false);
     const [spinner, setSpinner] = useState(true);
-    const {cloudyDay} = useWeatherIcon();
+    const {currWeatherIcon} = useWeatherIcon();
 
     const [cardData, setCardData] = useState({
         continent : '',
@@ -182,7 +182,7 @@ const ListContent = () => {
                             </Typography>
                         </div>
                         <div className="weather-icon">
-                            <img src={cloudyDay}/>
+                            <img src={currWeatherIcon}/>
                         </div>
                     </div>
                     <div className="card-row">
