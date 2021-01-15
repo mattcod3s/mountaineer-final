@@ -13,6 +13,7 @@ import southAmerica from '../../../../../../Assets/formImg/south-america.svg';
 import australia from '../../../../../../Assets/formImg/australia.svg';
 import europe from '../../../../../../Assets/formImg/europe.svg';
 import axios from 'axios';
+import useWeatherIcon from '../../../../../../useWeatherIcon';
 
 const ListContent = () => {
     const [index, setIndex] = useContext(ConqListContext);
@@ -21,7 +22,7 @@ const ListContent = () => {
     const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
     const [cardInfo, setCardInfo] = useState(false);
     const [spinner, setSpinner] = useState(true);
-    
+    const {cloudyDay} = useWeatherIcon();
 
     const [cardData, setCardData] = useState({
         continent : '',
@@ -181,7 +182,7 @@ const ListContent = () => {
                             </Typography>
                         </div>
                         <div className="weather-icon">
-                            {/* add weather icon */}
+                            <img src={cloudyDay}/>
                         </div>
                     </div>
                     <div className="card-row">
