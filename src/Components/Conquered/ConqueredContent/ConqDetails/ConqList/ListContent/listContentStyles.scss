@@ -30,6 +30,86 @@
         transition-duration: 0.25s;
         box-shadow:  0 0 0 0;
         border: 2px solid white;
+        justify-content: center;
+        align-items: center;
+
+        .spinner {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+          }
+          .spinner:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6px solid #000;
+            border-color: #000 transparent #000 transparent;
+            animation: spinner 1.2s linear infinite;
+          }
+          @keyframes spinner {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+        .spinner__off {
+            display: none;
+        }
+        .content__loading {
+            display: none;
+        }
+        .content__loaded {
+            display: flex;
+            flex-direction: column;
+            width: 450px;
+            height: 350px;
+
+            .icon {
+                width: 100%;
+                height: 20%;
+
+                .inner-exit {
+                    margin-top: 12px;
+                    margin-left: -8px;
+                }
+            }
+            .card_header {
+                width: 100%;
+                height: 35%;
+                display: flex;
+
+                .header__content {
+                    width: 50%;
+                    height: 100%;
+                }
+                .weather-icon {
+                    width: 50%;
+                    height: 100%;
+                }
+            }
+            .card-row {
+                width: 100%;
+                height: 10%;
+                display: flex;
+
+                .card-row-text {
+                    width: 50%;
+                    height: 100%;
+                }
+            }
+            .btn-card-row {
+                width: 100%;
+                height: 15%;
+                display: flex;
+                justify-content: flex-end;
+
+            }
+        }
         
     }
     .arrow-left {}
@@ -55,3 +135,7 @@
     }
     
 }
+
+
+
+  

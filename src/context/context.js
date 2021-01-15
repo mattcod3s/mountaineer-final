@@ -142,7 +142,7 @@ const ConqueredTrips = [
     {
         id : 1900,
         continent : 'AFRICA',
-        mountain : 'Kilimanjaro',
+        mountain : 'Mount Kilimanjaro',
         startDate : '10-12-2020',
         endDate : '20-12-2020',
         lat:-3.06,

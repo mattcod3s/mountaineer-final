@@ -20,6 +20,7 @@ const ListContent = () => {
     let [activeTrips, setActiveTrips] = useContext(ActiveTripsContext);
     const [conqStatus, setConqStatus] = useContext(ConqStatusContext);
     const [cardInfo, setCardInfo] = useState(false);
+    const [spinner, setSpinner] = useState(true);
     
 
     const [cardData, setCardData] = useState({
@@ -109,7 +110,7 @@ const ListContent = () => {
             const proxy = "https://cors-anywhere.herokuapp.com/";
             const fetchURL = `${proxy}https://api.darksky.net/forecast/e4d88e9928e57d49d1dd1c799043d598/${trip.lat},${trip.long}`;
             const request = await axios.get(fetchURL);
-
+            setSpinner(false);
             setCardData({
                 continent: trip.continent,
                 mountain: trip.mountain,
@@ -122,7 +123,6 @@ const ListContent = () => {
                 humidity: request.data.currently.humidity,
                 icon: request.data.currently.icon, 
                 precipProbability: request.data.currently.precipProbability,
-                precipIntensity: request.data.currently.precipIntensity,
                 windSpeed: request.data.currently.windSpeed
             });
             
@@ -152,7 +152,8 @@ const ListContent = () => {
                             <ListItemText style={{color: 'rgb(220,220,220)'}} primary={ trip.mountain } secondary={`Conquered : ${trip.endDate}`}/>
                             <ListItemSecondaryAction style={{ paddingRight: '30px'}}>
                                 <IconButton key={trip.id} edge="end" aria-label="info" style={{color: 'white'}} onClick={() => {
-                                    handleInfoClick(trip)
+                                    handleInfoClick(trip);
+                                    setSpinner(true);
                                 }}>
                                     <InfoIcon />
                                 </IconButton>
@@ -165,38 +166,51 @@ const ListContent = () => {
 
             <div className={cardInfo ? 'arrow-left__active' : 'arrow-left'}></div>
             <Card className={cardInfo ? 'cardInfo__active' : 'cardInfo'} >
-                
-                <CardContent>
-                    <CloseIcon onClick={handleCloseClick} style={{cursor: 'pointer'}}/>
-                    <Typography color="textSecondary" gutterBottom>
-                       Conquered Peak {cardData.icon}
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                        {cardData.mountain}
-                    </Typography>
-                    <Typography  color="textSecondary">
-                        {cardData.timezone}
-                    </Typography>
-                    <Typography variant="body2" component="p">
-                        Started: {cardData.startDate}
-                    <br />
-                        Conquered: {cardData.endDate}
-                    </Typography>
-                    <Typography variant="body2" component="p">
-                        Temperature : {cardData.temp}
-                    <br />
-                        Humidity: {cardData.humidity}
-                    <br />
-                        Chance of Precipitation: {cardData.precipProbability}
-                    <br />
-                        Precipitation Intensity: {cardData.precipIntensity}
-                     <br />
-                        Precipitation Intensity: {cardData.precipIntensity}
-                    <br />
-                        Wind Speed: {cardData.windSpeed}
-                    </Typography>
-                    <CardActions>
-                        <Button size="small">Learn More</Button>
+                <div className={spinner ? 'spinner' : 'spinner__off'}></div>
+                <CardContent className={spinner ? 'content__loading' : 'content__loaded'}>
+                    <div className="icon">
+                        <CloseIcon onClick={handleCloseClick} style={{cursor: 'pointer'}} className='inner-exit'/>
+                    </div>
+                    <div className="card_header">
+                        <div className="header__content">
+                            <Typography variant="h5" component="h2">
+                                {cardData.mountain}
+                            </Typography>
+                            <Typography  color="textSecondary">
+                                {cardData.timezone}
+                            </Typography>
+                        </div>
+                        <div className="weather-icon">
+                            {/* add weather icon */}
+                        </div>
+                    </div>
+                    <div className="card-row">
+                        <Typography className="card-row-text" variant="body2" component="p">
+                            Started: {cardData.startDate}
+                        </Typography>
+                        
+                        <Typography className="card-row-text" variant="body2" component="p">
+                            Conquered: {cardData.endDate}
+                        </Typography>
+                    </div>
+                    <div className="card-row">
+                        <Typography className="card-row-text" variant="body2" component="p">
+                            Temperature : {cardData.temp}
+                        </Typography>
+                        <Typography className="card-row-text" variant="body2" component="p">
+                            Humidity: {cardData.humidity}
+                        </Typography>
+                    </div>
+                    <div className="card-row">
+                        <Typography className="card-row-text" variant="body2" component="p">
+                            Chance of Precipitation: {cardData.precipProbability}
+                        </Typography>
+                        <Typography className="card-row-text" variant="body2" component="p">
+                            Wind Speed: {cardData.windSpeed}
+                        </Typography>
+                    </div>
+                    <CardActions className="btn-card-row">
+                        <Button style={{marginRight: '20px'}} size="small">Learn More</Button>
                     </CardActions>
                 </CardContent>
                 
