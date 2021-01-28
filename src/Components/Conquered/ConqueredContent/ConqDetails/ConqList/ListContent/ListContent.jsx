@@ -4,7 +4,6 @@ import {ConqStatusContext, ConqListContext, PlannedTripsContext, ActiveTripsCont
 import { List as MUIList,Card,CardActions,CardContent, Button,Typography , ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import CloseIcon from '@material-ui/icons/Close';
-import getDataCall from '../../../../../../axios';
 import globe from '../../../../../../Assets/formImg/globe.svg';
 import asia from '../../../../../../Assets/formImg/asia.svg';
 import africa from '../../../../../../Assets/formImg/africa.svg';
@@ -104,7 +103,6 @@ const ListContent = () => {
     }, [index, conqStatus]);
 
     const handleInfoClick = (trip) => {
-        getDataCall(trip.lat, trip.long);
         
         setCardInfo(true);
         async function fetchData() {
